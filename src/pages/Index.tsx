@@ -25,13 +25,13 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
       <Header />
-      <main className="flex-grow pt-16">
+      <main id="main" className="flex-grow pt-16">
         <Hero />
         
         <Suspense fallback={<LoadingComponent />}>
           <AboutUs />
         </Suspense>
-        
+
         <Suspense fallback={<LoadingComponent />}>
           <Services />
         </Suspense>

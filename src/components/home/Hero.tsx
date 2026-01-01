@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Users, UserCircle, SearchCode, Ship, Calendar, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -80,6 +81,7 @@ const Hero = () => {
               alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover object-center"
               loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
             />
           </div>
         ))}
@@ -112,6 +114,11 @@ const Hero = () => {
             <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-xl">
               Arabian Future Net brings expertise in international logistics, offering comprehensive solutions tailored to your business needs across Saudi Arabia and worldwide.
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/contact" className="button-primary" aria-label="Get a Quote">Get A Quote</Link>
+              <Link to="/contact" className="button-secondary" aria-label="Contact Us">Contact Us</Link>
+            </div>
           </div>
         </div>
       </div>

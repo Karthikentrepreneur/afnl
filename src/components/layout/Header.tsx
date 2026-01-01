@@ -28,21 +28,25 @@ export const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white py-2 shadow-md' : 'bg-white/95 py-2'}`}>
+    <header className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white py-2 shadow-md backdrop-blur-sm' : 'bg-white/95 py-2'}`}>
       <div className="container mx-auto px-4">
+        <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <img 
               src="/futurenet-logo.png" 
               alt="Arabian Future Net Logo" 
               onClick={handleLogoClick} 
-              className="h-14 w-auto cursor-pointer transition-all duration-300 object-contain" 
+              className={`transition-all duration-300 object-contain ${scrolled ? 'h-10' : 'h-14'}`}
             />
           </div>
 
           <button 
             className="md:hidden text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-green rounded-md p-1" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-nav"
+            aria-label="Toggle navigation"
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -51,6 +55,7 @@ export const Header = () => {
             <button 
               onClick={() => handleNavClick("/")} 
               className={`text-gray-800 hover:text-brand-green font-medium transition-colors py-1 ${location.pathname === '/' ? 'text-brand-green' : ''}`}
+              aria-current={location.pathname === '/' ? 'page' : undefined}
             >
               Home
             </button>
@@ -88,11 +93,12 @@ export const Header = () => {
           </nav>
         </div>
 
-        <div className={`${isMobileMenuOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out`}>
+        <div id="mobile-nav" className={`${isMobileMenuOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0'} md:hidden overflow-hidden transition-all duration-300 ease-in-out`} role="region" aria-hidden={!isMobileMenuOpen}>
           <nav className="flex flex-col gap-4 border-t mt-4 border-gray-100">
             <button 
               onClick={() => handleNavClick("/")} 
               className={`text-gray-800 hover:text-brand-green font-medium ${location.pathname === '/' ? 'text-brand-green' : ''}`}
+              aria-current={location.pathname === '/' ? 'page' : undefined}
             >
               Home
             </button>

@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import VisionMission from "@/components/home/VisionMission";
 
 const AboutUs = () => {
   return (
+    <>
     <section className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
@@ -55,7 +57,9 @@ const AboutUs = () => {
         </motion.div>
       </div>
     </section>
+    <VisionMission />
+    </>
   );
 };
 
-export default AboutUs;
+export default AboutUs; 
