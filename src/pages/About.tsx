@@ -2,138 +2,65 @@ import React from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Globe, Ship, Truck, Package, Clock, Shield, Target, Users, Award, CheckCircle, ArrowRight } from 'lucide-react';
+import { Globe, Clock, Users, Award, Target, Eye } from 'lucide-react';
+
 const About = () => {
-  const stats = [{
-    number: "15+",
-    label: "Years Experience",
-    icon: Clock
-  }, {
-    number: "500+",
-    label: "Global Partners",
-    icon: Users
-  }, {
-    number: "50+",
-    label: "Countries Served",
-    icon: Globe
-  }, {
-    number: "99%",
-    label: "On-Time Delivery",
-    icon: Award
-  }];
-  const services = [{
-    icon: Ship,
-    title: "Ocean Freight",
-    description: "Comprehensive sea freight solutions with global coverage"
-  }, {
-    icon: Package,
-    title: "Air Freight",
-    description: "Fast and reliable air cargo services worldwide"
-  }, {
-    icon: Truck,
-    title: "Land Transport",
-    description: "Efficient ground transportation and last-mile delivery"
-  }, {
-    icon: Shield,
-    title: "Warehousing",
-    description: "Secure storage and inventory management solutions"
-  }];
-  const features = ["Real-time shipment tracking and visibility", "Dedicated customer service teams", "Strategic global hub network", "Advanced logistics technology platform", "Customs clearance expertise", "Cost-effective LCL consolidation"];
-  const lclServices = ["Collecting smaller shipments from multiple clients", "Combining them into a single container at origin", "Managing customs clearance and documentation", "Ensuring secure and timely deconsolidation and final delivery"];
-  const globalHubs = ["Singapore", "Malaysia", "Sri Lanka", "Dubai"];
-  return <div className="min-h-screen flex flex-col bg-gray-50">
+  return (
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
 
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white px-6 mt-16">
           <div className="max-w-7xl mx-auto">
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.8
-          }} className="text-center">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-50">
-                About <span className="text-slate-50">GGL</span>
+                About <span className="text-brand-green">Arabian Future Net</span>
               </h1>
               <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-slate-50">
-                Singapore's premier logistics company, offering specialized expertise across warehousing, freight forwarding, and transportation
+                International freight forwarder and logistics provider headquartered in Dammam, Saudi Arabia
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Stats Section */}
-        
-
         {/* Main About Content */}
         <section className="py-20 px-6 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <motion.div initial={{
-              opacity: 0,
-              x: -30
-            }} whileInView={{
-              opacity: 1,
-              x: 0
-            }} transition={{
-              duration: 0.8
-            }} viewport={{
-              once: true
-            }}>
+              <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                 <span className="text-[brand-navy_to-brand-navy/90] text-brand-navy">About Us</span>
+                  <span className="text-brand-navy">About Us</span>
                 </h2>
                 
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
                   <p className="text-base">
-                    At GGL, we take pride in being one of Singapore's premier logistics companies, offering specialized expertise across warehousing, freight forwarding (air and ocean), and transportation. Our mission is to provide seamless, end-to-end global logistics solutions through a trusted network of partners, each excelling in their respective logistics segments.
+                    Arabian Future Net Shipping Company is an international freight forwarder and logistics provider with headquarters in Dammam and branch offices in Jeddah and Riyadh. We offer premium logistics services to businesses worldwide, a wide range of international and domestic transportation and logistics services.
                   </p>
                   
                   <p className="text-base">
-                    Our experienced team is dedicated to delivering world-class service, tailored to meet the unique needs of each client. Whether it's a custom-built logistics strategy or a full-spectrum solution, we ensure efficiency, reliability, and value every step of the way.
+                    We provide seamless integration of various transportation modes such as sea freight, air freight and road freight, as well as diversified logistics services in Warehousing, Material Handling. Arabian Future Net is well equipped to handle worldwide door-to-door delivery, custom clearance, dangerous or perishable goods, break bulk / project cargos etc.
                   </p>
                   
                   <p className="text-base">
-                    To enhance customer experience, GGL leverages a powerful, internet-based software platform that offers real-time shipment visibility—from origin to destination. This technology ensures transparency, control, and timely updates, delivering a seamless and differentiated logistics experience.
-                  </p>
-
-                  <p className="text-base">
-                    Renowned for our exceptional service quality, GGL is recognized as one of the most customer-focused logistics companies in the region. Our ability to consistently deliver dependable and economical solutions has helped us build enduring partnerships with clients around the world.
+                    Our organizational structure is simple which makes the communication process very effective and much satisfactory for our clients. Arabian Future Net is part of world's largest network 'World Cargo Alliance' (WCA) and are able to handle shipments to and from any part of the world using our own offices & agents worldwide.
                   </p>
                 </div>
               </motion.div>
 
-              <motion.div initial={{
-              opacity: 0,
-              x: 30
-            }} whileInView={{
-              opacity: 1,
-              x: 0
-            }} transition={{
-              duration: 0.8
-            }} viewport={{
-              once: true
-            }} className="relative">
+              <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img alt="GGL Global Logistics" className="w-full h-[500px] object-cover" src="/lovable-uploads/41795fb5-562d-45d1-a8d3-f26724bc079b.png" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent my-0"></div>
+                  <img alt="Arabian Future Net Logistics" className="w-full h-[500px] object-cover" src="/lovable-uploads/41795fb5-562d-45d1-a8d3-f26724bc079b.png" />
                 </div>
                 
-                {/* Floating cards */}
                 <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-lg max-w-xs">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <Globe className="w-6 h-6 text-blue-600" />
+                    <div className="p-2 bg-green-100 rounded-lg">
+                      <Globe className="w-6 h-6 text-brand-green" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Global Network</h4>
-                      <p className="text-sm text-gray-600">50+ countries worldwide</p>
+                      <h4 className="font-semibold text-gray-900">WCA Member</h4>
+                      <p className="text-sm text-gray-600">World Cargo Alliance</p>
                     </div>
                   </div>
                 </div>
@@ -142,44 +69,37 @@ const About = () => {
           </div>
         </section>
 
-        {/* Why Choose GGL Section */}
-      <section className="py-20 bg-white px-6">
-  <div className="max-w-7xl mx-auto">
-    <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.8
-          }} viewport={{
-            once: true
-          }} className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Why Choose <span className="text-yellow-500">GGL?</span>
-      </h2>
-      <div className="text-xl text-gray-600 max-w-4xl mx-auto space-y-6 text-left">
-        
-        
-        <p className="text-base my-0">At GGL, we believe logistics is more than just moving goods — it’s about delivering trust. Our team combines sharp attention to detail with a service-first mindset, ensuring every shipment is handled with care, precision, and efficiency. We pride ourselves on being responsive, proactive, and fully aligned with our clients’ needs. From documentation to delivery, we go the extra mile so you don’t have to.</p>
-      </div>
-    </motion.div>
-  </div>
-      </section>
+        {/* Vision & Mission */}
+        <section className="py-20 bg-white px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="bg-brand-navy p-8 rounded-xl text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <Eye className="w-8 h-8 text-brand-green" />
+                  <h3 className="text-2xl font-bold">Our Vision</h3>
+                </div>
+                <p className="text-white/90">
+                  Arabian Future Net, to be the leading global logistics solution provider through our most advanced systems combined with well experienced logistics professionals.
+                </p>
+              </motion.div>
 
-
-        {/* LCL Consolidation Section */}
-        
-
-        {/* Services Grid */}
-        
-
-        {/* CTA Section */}
-        
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} viewport={{ once: true }} className="bg-brand-green p-8 rounded-xl text-white">
+                <div className="flex items-center gap-3 mb-4">
+                  <Target className="w-8 h-8 text-white" />
+                  <h3 className="text-2xl font-bold">Our Mission</h3>
+                </div>
+                <p className="text-white/90">
+                  To be customers' first choice for customised logistics solutions with integrated processes, advanced WMS & distribution module with e-commerce capability, FCL, LCL, Air Freight, Freight Management, Liquid Transportation solutions, Projects & Break Bulk.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default About;

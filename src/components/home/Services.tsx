@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Plane, ArrowRight, Truck, Package, Anchor, Warehouse } from "lucide-react";
+import { Plane, ArrowRight, Truck, Package, Anchor, Warehouse, FileCheck } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -37,7 +37,7 @@ const EnhancedServiceCard = ({
         </div>
         <div className="flex flex-col flex-grow p-3 gap-2">
           <div className="flex items-center gap-2 text-brand-navy">
-            <div className="w-6 h-6 rounded-full bg-[#f6b100] flex items-center justify-center text-white">
+            <div className="w-6 h-6 rounded-full bg-brand-green flex items-center justify-center text-white">
               {React.cloneElement(icon, { size: 14 })}
             </div>
             <h3 className="text-sm font-semibold">{title}</h3>
@@ -45,7 +45,7 @@ const EnhancedServiceCard = ({
           <p className="text-xs text-gray-600 line-clamp-3 leading-snug">
             {description}
           </p>
-          <div className="text-xs text-brand-gold font-medium inline-flex items-center mt-1">
+          <div className="text-xs text-brand-green font-medium inline-flex items-center mt-1">
             Learn More
             <motion.span
               className="ml-1"
@@ -67,7 +67,7 @@ export const Services = () => {
       image: "/lovable-uploads/oceanfrieght.jpg",
       title: "Ocean Freight",
       description:
-        "GGL's dedicated ocean freight department specialize in the complete range freight management services for LCL and FCL loads, supported thru a well established and reliable partner network around the world, for efficient collection, storage & delivery from shippers door to door.",
+        "Complete FCL and LCL services with multiple sailing options. We provide transparency of all pricing at origin, destination and ocean freight charges with reliable partner network worldwide.",
       icon: <Anchor />,
       link: "/services/ocean-freight"
     },
@@ -75,15 +75,23 @@ export const Services = () => {
       image: "/cargoplane.png",
       title: "Air Freight",
       description:
-        "At GGL, we provide a comprehensive range of air freight services designed to meet all your shipping needs. Our expert air freight teams offer seamless air import, export, and express options, all on a convenient door-to-door basis. GGL stands out with competitive rates.",
+        "As a leading independent airfreight company, we provide flexibility and choice worldwide by working with specialist carriers who provide customized schedules and solutions.",
       icon: <Plane />,
       link: "/services/air-freight"
     },
     {
-      image: "/truck12.png",
-      title: "Transportation And Distribution",
+      image: "/lovable-uploads/cc.jpg",
+      title: "Customs Clearance",
       description:
-        "GGL boasts a dedicated fleet of vehicles to ensure timely domestic distribution and deliveries. Our efficient operational infrastructure provides our clients with high productivity, frequent services, and fast, reliable distribution operations. GGL is committed to delivering excellence.",
+        "As leading custom clearing agents, we ensure all clearance formalities are done smoothly so customers receive their goods on time with complete study of local rules and regulations.",
+      icon: <FileCheck />,
+      link: "/services/customs-clearance"
+    },
+    {
+      image: "/truck12.png",
+      title: "Transportation",
+      description:
+        "Dedicated fleet of vehicles for timely domestic distribution and deliveries. Our efficient operational infrastructure provides high productivity and reliable distribution operations.",
       icon: <Truck />,
       link: "/services/transportation"
     },
@@ -91,23 +99,15 @@ export const Services = () => {
       image: "/lovable-uploads/warehouse.jpg",
       title: "Warehousing",
       description:
-        "GGL is a premier supply chain solutions provider in Singapore, addressing the full spectrum of logistics needs for our clients. We facilitate the movement of goods from suppliers to manufacturers (for parts and components), from manufacturers and brand owners to resellers and distributors.",
+        "Premier supply chain solutions addressing the full spectrum of logistics needs. We facilitate movement of goods from suppliers to manufacturers and from brand owners to distributors.",
       icon: <Warehouse />,
       link: "/services/warehousing"
-    },
-    {
-      image: "/lcl.png",
-      title: "LCL Consolidation",
-      description:
-        "GGL is a LCL Consolidator with global presence covering North America, UK, Middle East, Indian Sub Continent, South East Asia and Far East. Our LCL Groupage services is backed by very efficient customer support at competitive prices.",
-      icon: <Warehouse />,
-      link: "/services/lcl-consolidation"
     },
     {
       image: "/projectcargo3.png",
       title: "Project Cargo",
       description:
-        "Project cargo refers to the specialized transportation of large, heavy, high-value, or complex equipment, often associated with large-scale infrastructure or construction projects.",
+        "Specialized transportation of large, heavy, high-value, or complex equipment, often associated with large-scale infrastructure or construction projects.",
       icon: <Package />,
       link: "/services/project-cargo"
     }
@@ -142,7 +142,7 @@ export const Services = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div variants={itemVariants} className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-3">Our Core Services</h2>
-          <div className="w-24 h-1 bg-brand-gold mx-auto mb-4"></div>
+          <div className="w-24 h-1 bg-brand-green mx-auto mb-4"></div>
           <p className="text-gray-600 max-w-xl mx-auto text-sm md:text-base">
             Discover our comprehensive range of logistics solutions designed to meet your global shipping needs.
           </p>
@@ -170,7 +170,7 @@ export const Services = () => {
           className="flex justify-center mt-8"
         >
           <Link to="/services" onClick={() => window.scrollTo(0, 0)}>
-            <Button variant="navy" className="group transition-all duration-300 text-sm flex items-center gap-2 navy-glow">
+            <Button className="group transition-all duration-300 text-sm flex items-center gap-2 bg-brand-navy hover:bg-brand-navy/90 text-white">
               Explore All Services
               <motion.span
                 animate={{ x: [0, 5, 0] }}

@@ -1,4 +1,3 @@
-
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -31,7 +30,6 @@ export const QuickEnquiry = () => {
   const onSubmit = async (data: EnquiryForm) => {
     setIsSubmitting(true);
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       console.log(data);
       setSubmitStatus('success');
@@ -40,7 +38,6 @@ export const QuickEnquiry = () => {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      // Reset status after 3 seconds
       setTimeout(() => setSubmitStatus('idle'), 3000);
     }
   };
@@ -58,7 +55,7 @@ export const QuickEnquiry = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-3">
             Quick Enquiry
           </h2>
-          <div className="w-20 h-1 bg-brand-gold mx-auto mb-4"></div>
+          <div className="w-20 h-1 bg-brand-green mx-auto mb-4"></div>
           <p className="text-gray-600">
             Have a question? Fill out the form below and we'll get back to you shortly.
           </p>
@@ -109,18 +106,15 @@ export const QuickEnquiry = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="space-y-2">
                 <Label htmlFor="fullName" className="text-gray-700 flex items-center gap-2">
-                  <User className="h-4 w-4 text-brand-gold" />
+                  <User className="h-4 w-4 text-brand-green" />
                   Full Name*
                 </Label>
                 <Input 
                   id="fullName" 
-                  className={`bg-white/80 focus:ring-2 focus:ring-brand-gold/30 transition-all ${errors.fullName ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-gold"}`}
+                  className={`bg-white/80 focus:ring-2 focus:ring-brand-green/30 transition-all ${errors.fullName ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-green"}`}
                   {...register("fullName", {
                     required: "Full name is required",
-                    minLength: {
-                      value: 2,
-                      message: "Name must be at least 2 characters"
-                    }
+                    minLength: { value: 2, message: "Name must be at least 2 characters" }
                   })}
                 />
                 {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>}
@@ -128,18 +122,15 @@ export const QuickEnquiry = () => {
               
               <div className="space-y-2">
                 <Label htmlFor="phone" className="text-gray-700 flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-brand-gold" />
+                  <Phone className="h-4 w-4 text-brand-green" />
                   Phone Number*
                 </Label>
                 <Input 
                   id="phone" 
-                  className={`bg-white/80 focus:ring-2 focus:ring-brand-gold/30 transition-all ${errors.phone ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-gold"}`}
+                  className={`bg-white/80 focus:ring-2 focus:ring-brand-green/30 transition-all ${errors.phone ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-green"}`}
                   {...register("phone", {
                     required: "Phone number is required",
-                    pattern: {
-                      value: /^[0-9+-]+$/,
-                      message: "Please enter a valid phone number"
-                    }
+                    pattern: { value: /^[0-9+-]+$/, message: "Please enter a valid phone number" }
                   })}
                 />
                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
@@ -149,19 +140,16 @@ export const QuickEnquiry = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-gray-700 flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-brand-gold" />
+                  <Mail className="h-4 w-4 text-brand-green" />
                   Email*
                 </Label>
                 <Input 
                   id="email" 
                   type="email" 
-                  className={`bg-white/80 focus:ring-2 focus:ring-brand-gold/30 transition-all ${errors.email ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-gold"}`}
+                  className={`bg-white/80 focus:ring-2 focus:ring-brand-green/30 transition-all ${errors.email ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-green"}`}
                   {...register("email", {
                     required: "Email is required",
-                    pattern: {
-                      value: /^\S+@\S+$/i,
-                      message: "Please enter a valid email"
-                    }
+                    pattern: { value: /^\S+@\S+$/i, message: "Please enter a valid email" }
                   })}
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -169,18 +157,15 @@ export const QuickEnquiry = () => {
               
               <div className="space-y-2">
                 <Label htmlFor="purpose" className="text-gray-700 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-brand-gold" />
+                  <FileText className="h-4 w-4 text-brand-green" />
                   Purpose*
                 </Label>
                 <Input 
                   id="purpose" 
-                  className={`bg-white/80 focus:ring-2 focus:ring-brand-gold/30 transition-all ${errors.purpose ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-gold"}`}
+                  className={`bg-white/80 focus:ring-2 focus:ring-brand-green/30 transition-all ${errors.purpose ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-green"}`}
                   {...register("purpose", {
                     required: "Purpose is required",
-                    minLength: {
-                      value: 3,
-                      message: "Purpose must be at least 3 characters"
-                    }
+                    minLength: { value: 3, message: "Purpose must be at least 3 characters" }
                   })}
                 />
                 {errors.purpose && <p className="text-red-500 text-sm mt-1">{errors.purpose.message}</p>}
@@ -189,31 +174,25 @@ export const QuickEnquiry = () => {
 
             <div className="space-y-2">
               <Label htmlFor="comment" className="text-gray-700 flex items-center gap-2">
-                <MessageSquare className="h-4 w-4 text-brand-gold" />
+                <MessageSquare className="h-4 w-4 text-brand-green" />
                 Comment*
               </Label>
               <Textarea 
                 id="comment" 
-                className={`bg-white/80 focus:ring-2 focus:ring-brand-gold/30 transition-all min-h-[120px] ${errors.comment ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-gold"}`}
+                className={`bg-white/80 focus:ring-2 focus:ring-brand-green/30 transition-all min-h-[120px] ${errors.comment ? "border-red-300 focus:border-red-500" : "border-gray-300 focus:border-brand-green"}`}
                 {...register("comment", {
                   required: "Comment is required",
-                  minLength: {
-                    value: 10,
-                    message: "Comment must be at least 10 characters"
-                  }
+                  minLength: { value: 10, message: "Comment must be at least 10 characters" }
                 })}
               />
               {errors.comment && <p className="text-red-500 text-sm mt-1">{errors.comment.message}</p>}
             </div>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="w-full transition-colors text-slate-50 bg-gradient-to-r from-[#D4AF37] to-[#f6b100] hover:from-[#f6b100] hover:to-[#D4AF37] shadow-md hover:shadow-gold-glow"
+                className="w-full transition-colors text-white bg-gradient-to-r from-brand-green to-emerald-600 hover:from-emerald-600 hover:to-brand-green shadow-md hover:shadow-green-glow"
               >
                 {isSubmitting ? (
                   <>
