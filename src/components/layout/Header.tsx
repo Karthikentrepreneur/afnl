@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import CountrySelector from "../common/CountrySelector";
 
 export const Header = () => {
   const location = useLocation();
@@ -83,7 +84,6 @@ export const Header = () => {
               { label: "Home", path: "/" },
               { label: "About Us", path: "/about" },
               { label: "Services", path: "/services", match: "/services" },
-              { label: "Careers", path: "/careers" },
               { label: "Contact Us", path: "/contact" },
             ].map(({ label, path, match }) => (
               <button
@@ -99,6 +99,8 @@ export const Header = () => {
                 {label}
               </button>
             ))}
+
+            <CountrySelector />
 
             <button
               onClick={() => handleNavClick("/contact")}
@@ -124,7 +126,6 @@ export const Header = () => {
               { label: "Home", path: "/" },
               { label: "About Us", path: "/about" },
               { label: "Services", path: "/services" },
-              { label: "Careers", path: "/careers" },
               { label: "Contact Us", path: "/contact" },
             ].map(({ label, path }) => (
               <button
@@ -139,7 +140,7 @@ export const Header = () => {
                 {label}
               </button>
             ))}
-
+            <CountrySelector />
             <button
               onClick={() => handleNavClick("/contact")}
               className="px-4 py-2 bg-brand-green text-white rounded-md hover:bg-emerald-600 font-medium w-full"
