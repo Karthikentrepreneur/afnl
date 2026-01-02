@@ -44,29 +44,24 @@ const CountrySelector = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  // ✅ ALWAYS show UAE as selected country
+  // Always UAE
   const displayCountry = countries.find(
     (c) => c.country === "UAE"
   ) as CountryData;
 
-  const availableCountries = countries.filter((country) => {
-    if (country.country === "UAE") return false;
-    return true;
-  });
-
-  const sortedCountries = [...availableCountries].sort(
-    (a, b) => a.priority - b.priority
-  );
+  const sortedCountries = countries
+    .filter((c) => c.country !== "UAE")
+    .sort((a, b) => a.priority - b.priority);
 
   const handleCountrySelect = (country: CountryData) => {
     const currentPath = location.pathname;
     let targetRoute = country.route;
 
     if (currentPath.includes("/about-us")) {
-      const prefix = country.slug === "" ? "" : `/${country.slug}`;
+      const prefix = country.slug ? `/${country.slug}` : "";
       targetRoute = `${prefix}/about-us`;
     } else if (currentPath.includes("/contact")) {
-      const prefix = country.slug === "" ? "" : `/${country.slug}`;
+      const prefix = country.slug ? `/${country.slug}` : "";
       targetRoute = `${prefix}/contact`;
     }
 
@@ -88,11 +83,8 @@ const CountrySelector = () => {
         setIsOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -102,29 +94,24 @@ const CountrySelector = () => {
         src={displayCountry.flag}
         alt="UAE flag"
         className="w-6 h-6 rounded shadow-sm object-cover"
-        title="UAE"
       />
 
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            className="bg-black text-white border-black hover:bg-black/90 px-4 py-2 rounded-full flex items-center gap-2"
-          >
-            <Globe className="w-6 h-6 text-white" />
+          <Button className="bg-black text-white border-black hover:bg-black/90 px-4 py-2 rounded-full flex items-center gap-2">
+            <Globe className="w-6 h-6" />
             <span className="flex items-center gap-1">
-              Switch Country
-              <ChevronDown className="h-3 w-3 ml-1 text-white" />
+              Switch Country <ChevronDown className="h-3 w-3" />
             </span>
           </Button>
         </DropdownMenuTrigger>
 
         <DropdownMenuContent
           align="center"
-          className="w-[280px] h-[90vh] border border-amber-100 bg-white p-2 rounded-lg shadow-lg overflow-y-auto"
+          className="w-[280px] h-[90vh] bg-white p-2 rounded-lg shadow-lg"
         >
-          <ScrollArea className="h-full w-full pr-2 custom-scrollbar">
-            <div className="grid grid-cols-1 gap-1 p-1">
+          <ScrollArea className="h-full w-full pr-2">
+            <div className="grid gap-1 p-1">
               {sortedCountries.map((country) => (
                 <DropdownMenuItem
                   key={country.country}
@@ -132,7 +119,14 @@ const CountrySelector = () => {
                     e.preventDefault();
                     handleCountrySelect(country);
                   }}
-                  className="cursor-pointer hover:bg-amber-50 py-4 px-3 min-h-[60px] rounded-md flex items-center gap-3 transition-all"
+                  className="
+                    group cursor-pointer
+                    bg-white
+                    hover:bg-black
+                    rounded-md
+                    py-4 px-3
+                    transition-all
+                  "
                 >
                   <motion.div
                     whileHover={{ scale: 1.05 }}
@@ -140,14 +134,15 @@ const CountrySelector = () => {
                   >
                     <img
                       src={country.flag}
-                      alt={`${country.country} flag`}
-                      className="w-6 h-6 rounded-sm shadow-sm object-cover"
+                      alt={country.country}
+                      className="w-6 h-6 rounded-sm shadow-sm"
                     />
+
                     <div className="ml-3 flex-1">
-                      <div className="font-medium text-sm">
+                      <div className="text-sm font-medium text-black group-hover:text-white transition-colors">
                         {country.country}
                       </div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-gray-500 group-hover:text-white transition-colors">
                         {country.company}
                       </div>
                     </div>
