@@ -31,8 +31,8 @@ export const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 w-full z-[999]
         bg-white border-b border-gray-100
-        transition-all duration-300
-        ${scrolled ? "py-2 shadow-[0_2px_12px_rgba(0,0,0,0.06)]" : "py-3"}
+        transition-shadow duration-300
+        ${scrolled ? "shadow-[0_2px_12px_rgba(0,0,0,0.06)]" : ""}
       `}
     >
       <div className="container mx-auto px-4">
@@ -40,28 +40,28 @@ export const Header = () => {
           Skip to content
         </a>
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center py-3">
           {/* Logos */}
           <div className="flex items-center gap-4">
-            {/* Main Logo */}
+            {/* Main Logo – ZOOM IN ONLY */}
             <img
               src="/futurenet-logo.png"
               alt="Arabian Future Net Logo"
               onClick={handleLogoClick}
-              className={`cursor-pointer object-contain transition-all duration-300 ${
-                scrolled ? "h-10" : "h-14"
+              className={`cursor-pointer object-contain h-12 transition-transform duration-300 ease-out ${
+                scrolled ? "scale-[1.05]" : "scale-100"
               }`}
             />
 
             {/* Divider */}
             <div className="hidden md:block h-8 w-px bg-gray-200" />
 
-            {/* 1Global Logo */}
+            {/* 1Global Logo – ZOOM IN ONLY */}
             <img
               src="/1GlobalEnterprises.png"
               alt="1 Global Enterprises Logo"
-              className={`hidden md:block object-contain transition-all duration-300 ${
-                scrolled ? "h-7" : "h-9"
+              className={`hidden md:block object-contain h-8 transition-transform duration-300 ease-out ${
+                scrolled ? "scale-[1.05]" : "scale-100"
               }`}
             />
           </div>
