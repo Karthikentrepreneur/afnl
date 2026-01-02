@@ -44,18 +44,14 @@ const CountrySelector = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  const pathname = location.pathname;
-  const slug = pathname.split("/")[1]?.toLowerCase() || "";
-
-  // 🔁 UAE is now the default fallback (instead of Singapore)
-  const displayCountry =
-    countries.find((c) => c.slug?.toLowerCase() === slug) ||
-    countries.find((c) => c.country === "UAE");
+  // ✅ ALWAYS show UAE as selected country
+  const displayCountry = countries.find(
+    (c) => c.country === "UAE"
+  ) as CountryData;
 
   const availableCountries = countries.filter((country) => {
-    const current = displayCountry?.country.toUpperCase();
-    if (current === "INDIA" && country.country === "PAKISTAN") return false;
-    return country.country !== current;
+    if (country.country === "UAE") return false;
+    return true;
   });
 
   const sortedCountries = [...availableCountries].sort(
@@ -101,14 +97,13 @@ const CountrySelector = () => {
 
   return (
     <div ref={dropdownRef} className="relative z-50 flex items-center gap-2">
-      {displayCountry?.flag && (
-        <img
-          src={displayCountry.flag}
-          alt={`${displayCountry.country} flag`}
-          className="w-6 h-6 rounded shadow-sm object-cover"
-          title={displayCountry.country}
-        />
-      )}
+      {/* Always UAE Flag */}
+      <img
+        src={displayCountry.flag}
+        alt="UAE flag"
+        className="w-6 h-6 rounded shadow-sm object-cover"
+        title="UAE"
+      />
 
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger asChild>
@@ -143,19 +138,11 @@ const CountrySelector = () => {
                     whileHover={{ scale: 1.05 }}
                     className="flex items-center w-full"
                   >
-                    <div className="flex-shrink-0">
-                      {country.flag ? (
-                        <img
-                          src={country.flag}
-                          alt={`${country.country} flag`}
-                          className="w-6 h-6 rounded-sm shadow-sm object-cover"
-                        />
-                      ) : (
-                        <div className="w-6 h-6 bg-gray-200 rounded-sm flex items-center justify-center">
-                          <Globe className="w-6 h-6 text-[#F6B100]" />
-                        </div>
-                      )}
-                    </div>
+                    <img
+                      src={country.flag}
+                      alt={`${country.country} flag`}
+                      className="w-6 h-6 rounded-sm shadow-sm object-cover"
+                    />
                     <div className="ml-3 flex-1">
                       <div className="font-medium text-sm">
                         {country.country}
