@@ -50,7 +50,7 @@ const AboutUs = () => {
                 alt="About Us" 
                 loading="lazy" 
                 className="w-full h-full object-cover rounded-lg" 
-                src="/lovable-uploads/3c0c858f-8cb2-4284-b2f7-ea7bf2b6d6df.png" 
+                src="/about2.JPG" 
               />
             </div>
           </motion.div>
