@@ -68,8 +68,8 @@ const Hero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/45 z-[1]" />
 
-      {/* CONTENT – MIDDLE RIGHT (PULLED LEFT, TEXT LEFT) */}
-      <div className="absolute top-1/2 right-[12%] -translate-y-1/2 z-[3] max-w-md text-left">
+      {/* CONTENT – LEFT CORNER, VERTICALLY CENTERED */}
+      <div className="absolute top-1/2 left-6 md:left-16 -translate-y-1/2 z-[3] max-w-md text-left">
         <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
           {slides[active].title}
         </h2>
