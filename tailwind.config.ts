@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					navy: '#1B3A6D',
+					navy: '#2D8B4D',
 					red: '#C92A2A',
 					green: '#2D8B4D',
 					darkGray: '#333333',
@@ -171,9 +171,9 @@ export default {
 				'custom': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
 				'card': '0 8px 16px rgba(45, 139, 77, 0.1)',
 				'card-hover': '0 10px 20px rgba(45, 139, 77, 0.15)',
-				'navy': '0 8px 16px rgba(27, 58, 109, 0.15)',
+				'navy': '0 8px 16px rgba(45, 139, 77, 0.15)',
 				'green-glow': '0 0 15px rgba(45, 139, 77, 0.5)',
-				'navy-glow': '0 0 15px rgba(27, 58, 109, 0.5)'
+				'navy-glow': '0 0 15px rgba(45, 139, 77, 0.5)'
 			},				fontFamily: {
 					sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial"],
 					serif: ["Georgia", "Cambria", "Times New Roman", "Times"],
@@ -190,11 +190,11 @@ export default {
 				},			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				'hero-pattern': 'linear-gradient(to bottom, rgba(27, 58, 109, 0.8) 0%, rgba(27, 58, 109, 0.6) 50%, rgba(27, 58, 109, 0.8) 100%)',
-				'card-gradient': 'linear-gradient(135deg, #1B3A6D 0%, #2B4A7D 100%)',
+				'hero-pattern': 'linear-gradient(to bottom, rgba(45, 139, 77, 0.8) 0%, rgba(45, 139, 77, 0.6) 50%, rgba(45, 139, 77, 0.8) 100%)',
+				'card-gradient': 'linear-gradient(135deg, #2D8B4D 0%, #3DA55D 100%)',
 				'green-gradient': 'linear-gradient(135deg, #2D8B4D 0%, #3DA55D 100%)',
 				'section-gradient': 'linear-gradient(180deg, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 0.7) 100%)',
-				'navy-green-gradient': 'linear-gradient(135deg, #1B3A6D 0%, #2D8B4D 100%)'
+				'navy-green-gradient': 'linear-gradient(135deg, #2D8B4D 0%, #3DA55D 100%)'
 			}
 		}
 	},

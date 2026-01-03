@@ -7,7 +7,8 @@ import {
   Package,
   Anchor,
   Warehouse,
-  FileCheck
+  FileCheck,
+  Boxes
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -129,6 +130,14 @@ export const Services = () => {
         "Expert handling of oversized, heavy-lift, and complex cargo for infrastructure and industrial projects.",
       icon: <Package />,
       link: "/services/project-cargo"
+    },
+    {
+      image: "/lovable-uploads/warehouse.jpg",
+      title: "3PL Services",
+      description:
+        "End-to-end third-party logistics solutions including warehousing, distribution, and supply chain management.",
+      icon: <Warehouse />,
+      link: "/services/3pl"
     }
   ];
 

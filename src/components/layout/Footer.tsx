@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <footer className="pt-16 pb-8 bg-gradient-to-b from-white to-gray-100">
       <div className="container mx-auto px-4">
-        <div className="h-1 bg-gradient-to-r from-brand-navy via-brand-green to-brand-navy rounded-full mb-8"></div>
+        <div className="h-1 bg-gradient-to-r from-brand-green via-emerald-400 to-brand-green rounded-full mb-8"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
           {/* Column 1: Logo & About */}

@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Plane, Ship, FileText, Droplets, Truck, Warehouse } from "lucide-react";
+import { Plane, Ship, FileText, Droplets, Truck, Warehouse, Boxes } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -134,7 +134,7 @@ const Services = () => {
       icon: <Plane className="w-5 h-5" />,
       title: "Air Freight",
       image: "/cargoplane3.png",
-      description: "At GGL, we offer a comprehensive range of air freight solutions tailored to meet your time-sensitive and high-priority shipping needs.",
+      description: "We offer a comprehensive range of air freight solutions tailored to meet your time-sensitive and high-priority shipping needs.",
       link: "/services/air-freight"
     },
     {
@@ -142,7 +142,7 @@ const Services = () => {
       icon: <Ship className="w-5 h-5" />,
       title: "Ocean Freight",
       image: "/ships2.png",
-      description: "At GGL, our dedicated Ocean Freight Department specializes in comprehensive freight management services for both Less-than-Container Load (LCL) and Full Container Load (FCL) shipments.",
+      description: "Our dedicated Ocean Freight Department specializes in comprehensive freight management services for both LCL and FCL shipments.",
       link: "/services/ocean-freight"
     },
     {
@@ -150,7 +150,7 @@ const Services = () => {
       icon: <Truck className="w-5 h-5" />,
       title: "Transportation",
       image: "/trucks.png",
-      description: "GGL proudly operates a dedicated fleet of vehicles designed to guarantee timely and efficient domestic distribution and delivery services.",
+      description: "We operate a dedicated fleet of vehicles designed to guarantee timely and efficient domestic distribution and delivery services.",
       link: "/services/transportation"
     },
     {
@@ -158,7 +158,7 @@ const Services = () => {
       icon: <Warehouse className="w-5 h-5" />,
       title: "Warehousing",
       image: "/warehouse2.png",
-      description: "GGL is a leading supply chain solutions provider in Singapore, offering end-to- end logistics services tailored to a wide range of industries.",
+      description: "Leading supply chain solutions provider offering end-to-end logistics services tailored to a wide range of industries.",
       link: "/services/warehousing"
     },
     {
@@ -166,7 +166,7 @@ const Services = () => {
       icon: <Warehouse className="w-5 h-5" />,
       title: "LCL Consolidation",
       image: "/lcl.png",
-      description: "GGL is a LCL Consolidator with global presence covering North America, UK, Middle East, Indian Sub Continent, South East Asia and Far East. Our LCL Groupage services is backed by very efficient customer support at competitive prices.",
+      description: "LCL Consolidator with global presence covering North America, UK, Middle East, Indian Sub Continent, South East Asia and Far East.",
       link: "/services/lcl-consolidation"
     },
     {
@@ -174,8 +174,16 @@ const Services = () => {
       icon: <Warehouse className="w-5 h-5" />,
       title: "Project Cargo",
       image: "/projectcargo3.png",
-      description: "We specialize in delivering end-to-end logistics solutions for complex, heavy, and oversized shipments—commonly known as project cargo.",
+      description: "We specialize in delivering end-to-end logistics solutions for complex, heavy, and oversized shipments.",
       link: "/services/project-cargo"
+    },
+    {
+      id: 7,
+      icon: <Boxes className="w-5 h-5" />,
+      title: "3PL Services",
+      image: "/lovable-uploads/warehouse.jpg",
+      description: "End-to-end third-party logistics solutions including warehousing, distribution, and supply chain management.",
+      link: "/services/3pl"
     }
   ];
   const featuredServices = services.slice(0, 3);
@@ -185,10 +193,10 @@ const Services = () => {
 
       <main className="flex-grow pt-16 md:pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-gray-900 to-brand-navy text-white relative overflow-hidden">
+        <section className="bg-gradient-to-r from-brand-green to-emerald-700 text-white relative overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img src="/lovable-uploads/gp.jpg" alt="Services" className="w-full h-full object-cover opacity-20" />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-brand-navy opacity-90"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-green to-emerald-700 opacity-90"></div>
           </div>
           
           <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
