@@ -7,7 +7,8 @@ import {
   Package,
   Anchor,
   Warehouse,
-  FileCheck
+  FileCheck,
+  Boxes
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -32,13 +33,9 @@ const EnhancedServiceCard = ({
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 260, damping: 18 }}
-      className="group h-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg"
+      className="group h-full rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-lg overflow-hidden"
     >
-      <Link
-        to={link}
-        onClick={() => window.scrollTo(0, 0)}
-        className="flex h-full flex-col"
-      >
+      <Link to={link} onClick={() => window.scrollTo(0, 0)} className="flex flex-col h-full">
         {/* Image */}
         <div className="relative overflow-hidden">
           <AspectRatio ratio={16 / 10}>
@@ -48,11 +45,11 @@ const EnhancedServiceCard = ({
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </AspectRatio>
-          <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/20" />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
         </div>
 
         {/* Content */}
-        <div className="flex flex-grow flex-col gap-3 p-4">
+        <div className="flex flex-col flex-grow p-4 gap-3">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-green text-white">
               {React.cloneElement(icon, { size: 18 })}
@@ -62,11 +59,11 @@ const EnhancedServiceCard = ({
             </h3>
           </div>
 
-          <p className="line-clamp-3 text-sm leading-relaxed text-gray-600">
+          <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">
             {description}
           </p>
 
-          <div className="mt-auto flex items-center pt-2 text-sm font-medium text-brand-green">
+          <div className="mt-auto pt-2 flex items-center text-sm font-medium text-brand-green">
             Learn More
             <motion.span
               className="ml-2"
@@ -168,40 +165,35 @@ export const Services = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       variants={containerVariants}
-      className="bg-gradient-to-b from-white to-brand-lightGray py-14"
+      className="py-14 bg-gradient-to-b from-white to-brand-lightGray"
     >
       <div className="container mx-auto max-w-6xl px-4">
         {/* Heading */}
-        <motion.div variants={itemVariants} className="mb-12 text-center">
-          <h2 className="text-2xl font-bold text-brand-navy md:text-3xl">
+        <motion.div variants={itemVariants} className="text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold text-brand-navy">
             Our Core Services
           </h2>
-          <div className="mx-auto mb-5 mt-4 h-1 w-24 rounded bg-brand-green" />
-          <p className="mx-auto max-w-xl text-sm text-gray-600 md:text-base">
+          <div className="mx-auto mt-4 mb-5 h-1 w-24 rounded bg-brand-green" />
+          <p className="mx-auto max-w-xl text-sm md:text-base text-gray-600">
             Comprehensive logistics solutions designed to support global trade
             with reliability, efficiency, and scale.
           </p>
         </motion.div>
 
-        {/* Grid: 4 cards first row, 3 cards second row */}
+        {/* Grid */}
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {services.map((service, index) => {
-            const colSpan =
-              index < 4 ? "lg:col-span-3" : "lg:col-span-4";
-
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className={`h-full ${colSpan}`}
-              >
-                <EnhancedServiceCard {...service} />
-              </motion.div>
-            );
-          })}
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="h-full"
+            >
+              <EnhancedServiceCard {...service} />
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* CTA */}
