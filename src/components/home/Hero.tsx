@@ -42,58 +42,62 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActive((p) => (p + 1) % slides.length);
+      setActive((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Background */}
-      {slides.map((s, i) => (
+      {/* Background Slider */}
+      {slides.map((slide, index) => (
         <div
-          key={i}
+          key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            active === i ? 'opacity-100' : 'opacity-0'
+            active === index ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <img src={s.image} className="w-full h-full object-cover" />
+          <img
+            src={slide.image}
+            className="w-full h-full object-cover"
+            alt={slide.title}
+          />
         </div>
       ))}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/45 z-[1]" />
 
-      {/* LEFT BUTTON RAIL */}
-      <div className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-[5]">
-        <div className="flex flex-col gap-3">
-          {portalLinks.map((link, i) => (
-            <a
-              key={i}
-              href={link.url}
-              target={link.external ? '_blank' : undefined}
-              rel="noopener noreferrer"
-            >
-              <button className="w-14 h-14 flex flex-col items-center justify-center bg-white/95 hover:bg-white rounded-xl shadow hover:shadow-md transition">
-                {link.icon}
-                <span className="text-[10px] font-bold mt-1">
-                  {link.title}
-                </span>
-              </button>
-            </a>
-          ))}
-        </div>
+      {/* RIGHT CONTENT */}
+      <div className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 z-[3] max-w-md text-right">
+        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+          {slides[active].title}
+        </h2>
+        <p className="mt-3 text-white/85 text-sm sm:text-base md:text-lg">
+          {slides[active].desc}
+        </p>
       </div>
 
-      {/* CENTER TEXT */}
-      <div className="relative z-[3] min-h-screen flex items-end justify-center pb-20 px-4">
-        <div className="text-center space-y-3 max-w-xl">
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold">
-            {slides[active].title}
-          </h2>
-          <p className="text-white/85 text-sm sm:text-base md:text-lg">
-            {slides[active].desc}
-          </p>
+      {/* BOTTOM BUTTONS */}
+      <div className="absolute bottom-6 left-0 right-0 z-[5] px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {portalLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target={link.external ? '_blank' : undefined}
+                rel="noopener noreferrer"
+              >
+                <button className="w-full h-14 flex flex-col items-center justify-center gap-1 bg-white/95 hover:bg-white rounded-lg shadow hover:shadow-md transition">
+                  {link.icon}
+                  <span className="font-bold text-xs sm:text-sm">
+                    {link.title}
+                  </span>
+                </button>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
