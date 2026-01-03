@@ -30,11 +30,36 @@ const slides = [
 ];
 
 const portalLinks = [
-  { icon: <Users className="w-5 h-5" />, title: 'Consolmate', url: 'https://consolmate.com/auth/login/8', external: true },
-  { icon: <UserCircle className="w-5 h-5" />, title: 'Partner Portal', url: 'https://pp.onlinetracking.co/auth/login/8', external: true },
-  { icon: <SearchCode className="w-5 h-5" />, title: 'Tracking', url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:102:::::P0_GROUP_RID:231', external: true },
-  { icon: <Ship className="w-5 h-5" />, title: 'Schedule', url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:104:::::P0_GROUP_RID:231', external: true },
-  { icon: <Calendar className="w-5 h-5" />, title: 'Quote', url: '/contact', external: false },
+  {
+    icon: <Users className="w-5 h-5" />,
+    title: 'Consolmate',
+    url: 'https://consolmate.com/auth/login/8',
+    external: true,
+  },
+  {
+    icon: <UserCircle className="w-5 h-5" />,
+    title: 'Partner Portal',
+    url: 'https://pp.onlinetracking.co/auth/login/8',
+    external: true,
+  },
+  {
+    icon: <SearchCode className="w-5 h-5" />,
+    title: 'Tracking',
+    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:102:::::P0_GROUP_RID:231',
+    external: true,
+  },
+  {
+    icon: <Ship className="w-5 h-5" />,
+    title: 'Schedule',
+    url: 'http://ec2-13-229-38-56.ap-southeast-1.compute.amazonaws.com:8081/ords/f?p=107:104:::::P0_GROUP_RID:231',
+    external: true,
+  },
+  {
+    icon: <Calendar className="w-5 h-5" />,
+    title: 'Quote',
+    url: '/contact',
+    external: false,
+  },
 ];
 
 const Hero = () => {
@@ -44,12 +69,13 @@ const Hero = () => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % slides.length);
     }, 5000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+      {/* Background Slider */}
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -68,8 +94,8 @@ const Hero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/45 z-[1]" />
 
-      {/* CONTENT – LEFT MIDDLE (LOGO LEVEL) */}
-      <div className="absolute left-6 md:left-16 top-28 md:top-32 z-[3] max-w-md text-left">
+      {/* CONTENT – CENTERED & ALIGNED TO LOGO LINE */}
+      <div className="absolute top-[96px] md:top-[104px] left-1/2 -translate-x-1/2 z-[3] max-w-2xl text-center px-4">
         <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
           {slides[active].title}
         </h2>
@@ -78,7 +104,7 @@ const Hero = () => {
         </p>
       </div>
 
-      {/* BOTTOM BUTTONS – MOVED UP MORE */}
+      {/* BOTTOM BUTTONS – SLIGHTLY UP */}
       <div className="absolute bottom-20 left-0 right-0 z-[5] px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
