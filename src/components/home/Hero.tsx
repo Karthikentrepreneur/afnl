@@ -59,8 +59,8 @@ const Hero = () => {
         >
           <img
             src={slide.image}
-            className="w-full h-full object-cover"
             alt={slide.title}
+            className="w-full h-full object-cover"
           />
         </div>
       ))}
@@ -68,8 +68,8 @@ const Hero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/45 z-[1]" />
 
-      {/* RIGHT CONTENT */}
-      <div className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 z-[3] max-w-md text-right">
+      {/* LEFT CONTENT */}
+      <div className="absolute left-6 md:left-16 bottom-36 z-[3] max-w-md text-left">
         <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
           {slides[active].title}
         </h2>
