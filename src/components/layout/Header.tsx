@@ -84,7 +84,7 @@ export const Header = () => {
               { label: "Home", path: "/" },
               { label: "About Us", path: "/about" },
               { label: "Services", path: "/services", match: "/services" },
-              { label: "Contact Us", path: "/contact" },
+              { label: "Global Presence", path: "/global-presence" },
             ].map(({ label, path, match }) => (
               <button
                 key={path}
@@ -106,7 +106,7 @@ export const Header = () => {
               onClick={() => handleNavClick("/contact")}
               className="px-5 py-2 bg-brand-green text-white rounded-full hover:bg-emerald-600 transition font-medium"
             >
-              Get A Quote
+              Contact Us
             </button>
           </nav>
         </div>
@@ -126,7 +126,7 @@ export const Header = () => {
               { label: "Home", path: "/" },
               { label: "About Us", path: "/about" },
               { label: "Services", path: "/services" },
-              { label: "Contact Us", path: "/contact" },
+              { label: "Global Presence", path: "/global-presence" },
             ].map(({ label, path }) => (
               <button
                 key={path}
@@ -145,7 +145,7 @@ export const Header = () => {
               onClick={() => handleNavClick("/contact")}
               className="px-4 py-2 bg-brand-green text-white rounded-md hover:bg-emerald-600 font-medium w-full"
             >
-              Get A Quote
+              Contact Us
             </button>
           </nav>
         </div>
