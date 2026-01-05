@@ -3,7 +3,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
-const QuickEnquiry = lazy(() => import("@/components/home/QuickEnquiry"));
+const QuickEnquiry "@/components/home/QuickEnquiry";
 
 const offices = [
   {
