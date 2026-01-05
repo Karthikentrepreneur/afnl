@@ -78,25 +78,14 @@ const Transportation = () => {
                 Comprehensive Transportation Services
               </h2>
               <div className="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
-              <p className="text-gray-700 mb-6 text-justify">GGL proudly operates a dedicated fleet of vehicles designed to guarantee timely
-and efficient domestic distribution and delivery services. Our modern and well-
-maintained fleet, combined with advanced route planning and real-time tracking
-technologies, ensures that your shipments reach their destinations promptly and
-securely.</p>
+              <p className="text-gray-700 mb-6 text-justify">Arabian Future Net Shipping Company proudly operates a dedicated fleet of vehicles designed to guarantee timely and efficient domestic distribution and delivery services. Our modern and well- maintained fleet, combined with advanced route planning and real-time tracking technologies, ensures that your shipments reach their destinations promptly and securely.</p>
               <p className="text-gray-700 mb-6 text-justify">Supported by a robust operational infrastructure, we provide our clients with high
 productivity, frequent service schedules, and fast, reliable distribution across
 Singapore and beyond. Whether it’s last-mile delivery or bulk transportation, our
 team of experienced logistics professionals is committed to optimizing every
 stage of the distribution process.</p>
-              <p className="text-gray-700 mb-6 text-justify">At GGL, we understand that dependable transportation is critical to your supply
-chain’s success. That’s why we focus on flexibility, scalability, and
-transparency—offering tailored solutions to meet the unique demands of each
-client. Our proactive approach to managing shipments minimizes delays and
-disruptions, helping you maintain smooth operations and satisfy your customers.</p>
-              <p className="text-gray-700 mb-6 text-justify">From time-sensitive deliveries to complex distribution requirements, GGL stands
-as a trusted partner, dedicated to delivering excellence in every aspect of
-transportation and distribution. Choose GGL for logistics solutions that combine
-speed, reliability, and exceptional service to drive your business forward.</p>
+              <p className="text-gray-700 mb-6 text-justify">At Arabian Future Net Shipping Company, we understand that dependable transportation is critical to your supply chain’s success. That’s why we focus on flexibility, scalability, and transparency—offering tailored solutions to meet the unique demands of each client. Our proactive approach to managing shipments minimizes delays and disruptions, helping you maintain smooth operations and satisfy your customers.</p>
+              <p className="text-gray-700 mb-6 text-justify">From time-sensitive deliveries to complex distribution requirements, Arabian Future Net Shipping Company stands as a trusted partner, dedicated to delivering excellence in every aspect of transportation and distribution. Choose Arabian Future Net Shipping Company for logistics solutions that combine speed, reliability, and exceptional service to drive your business forward.</p>
             </div>
             
             {/* Transportation Services */}
