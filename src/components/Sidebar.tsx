@@ -144,18 +144,6 @@ const countries = [{
     contacts: ["+971 50 4337214"]
   }]
 }, {
-  code: "qa",
-  name: "Qatar",
-    lat: 25.276987,
-    lng: 51.520008,
-  cities: [{
-    name: "Doha",
-    lat: 25.276987,
-    lng: 51.520008,
-    address: "Office no: 48, 2nd Floor, Al matar Centre, Old Airport Road Doha",
-    contacts: ["0974 33622555"]
-  }]
-},{
   code: "cn",
   name: "China",
     lat: 22.54262,
@@ -169,30 +157,6 @@ const countries = [{
     email: "helen@haixun.co"
   }]
 }, {
-  code: "sa",
-  name: "Saudi Arabia",
-  lat: 26.4207,
-    lng: 50.0888,
-  cities: [{
-    name: "Dammam",
-    lat: 26.4207,
-    lng: 50.0888,
-    address: "Building No.2817, Secondary No9403, King Faisal Road, Al Tubebayshi Dist, Dammam, KSA 32233",
-    contacts: ["+966 13 343 0003"]
-  }, {
-    name: "Riyadh",
-    lat: 24.7136,
-    lng: 46.6753,
-    address: "Room No. T18, Rail Business Centre, Bldg No. 3823, Omar Aimukhtar St, Thulaim, Riyadh 11332",
-    contacts: ["+966 11295 0020"]
-  }, {
-    name: "Jeddah",
-    lat: 21.4858,
-    lng: 39.1925,
-    address: "Al-Madinah Al-Munawarah Road, Al Sharafeyah, Jeddah 4542 -22234, Kingdom of Saudi Arabia",
-    contacts: ["+966 12 578 0874"]
-  }]
-},{
   code: "sg",
   name: "Singapore",
   lat: 1.3521,
