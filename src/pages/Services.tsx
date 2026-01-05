@@ -133,7 +133,7 @@ const Services = () => {
       id: 1,
       icon: <Plane className="w-5 h-5" />,
       title: "Air Freight",
-      image: "/cargoplane3.png",
+      image: "/2.png",
       description: "We offer a comprehensive range of air freight solutions tailored to meet your time-sensitive and high-priority shipping needs.",
       link: "/services/air-freight"
     },
@@ -141,7 +141,7 @@ const Services = () => {
       id: 2,
       icon: <Ship className="w-5 h-5" />,
       title: "Ocean Freight",
-      image: "/ships2.png",
+      image: "/1.png",
       description: "Our dedicated Ocean Freight Department specializes in comprehensive freight management services for both LCL and FCL shipments.",
       link: "/services/ocean-freight"
     },
@@ -173,7 +173,7 @@ const Services = () => {
       id: 6,
       icon: <Warehouse className="w-5 h-5" />,
       title: "Project Cargo",
-      image: "/projectcargo3.png",
+      image: "/4.png",
       description: "We specialize in delivering end-to-end logistics solutions for complex, heavy, and oversized shipments.",
       link: "/services/project-cargo"
     },
