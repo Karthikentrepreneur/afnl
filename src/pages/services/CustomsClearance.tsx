@@ -62,7 +62,7 @@ const CustomsClearance = () => {
               }} transition={{
                 duration: 0.5
               }} className="rounded-xl overflow-hidden shadow-xl">
-                  <img src="/lovable-uploads/cc.jpg" alt="Customs Clearance Service" className="w-full h-auto object-cover" />
+                  <img alt="Customs Clearance Service" className="w-full h-auto object-cover" src="/lovable-uploads/69e62ea0-d95b-4595-bc19-74a30fa4d4a3.png" />
                 </motion.div>
               </div>
             </div>
