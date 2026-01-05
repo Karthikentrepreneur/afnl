@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Plane, Ship, FileText, FileCheck, Droplets, Truck, Anchor, Warehouse, Boxes } from "lucide-react";
+import { Plane, Ship, FileText, FileCheck, Droplets, Truck, Anchor, Warehouse, Package, Boxes } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
