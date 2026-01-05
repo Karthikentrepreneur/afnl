@@ -64,7 +64,7 @@ const Warehousing = () => {
                 duration: 0.5
               }} className="rounded-xl overflow-hidden shadow-xl">
                   <AspectRatio ratio={16 / 9}>
-                    <img alt="Warehousing Service" className="w-full h-full object-cover" src="/warehouse2.png" />
+                    <img alt="Warehousing Service" className="w-full h-full object-cover" src="/lovable-uploads/f1470500-0713-40b7-85ec-9de41b116f2f.png" />
                   </AspectRatio>
                 </motion.div>
               </div>
@@ -80,20 +80,14 @@ const Warehousing = () => {
                 Comprehensive Warehousing Services
               </h2>
               <div className="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
-              <p className="text-gray-700 mb-6 text-justify">GGL is a leading supply chain solutions provider in Singapore, offering end-to-
-end logistics services tailored to a wide range of industries. We manage the full
-flow of goods—from suppliers to manufacturers (parts and components), from
-
-manufacturers to resellers and consumers (finished products), and from
-consumers back to OEMs (returns and spares).</p>
+              <p className="text-gray-700 mb-6 text-justify">Arabian Future Net Shipping Company is a leading supply chain solutions provider in Singapore, offering end-to- end logistics services tailored to a wide range of industries. We manage the full flow of goods—from suppliers to manufacturers (parts and components), from manufacturers to resellers and consumers (finished products), and from consumers back to OEMs (returns and spares).</p>
             <p className="text-gray-700 mb-6 text-justify">Our advanced warehouses are fully equipped with cutting-edge Warehouse
 Management Systems (WMS), providing complete visibility, real-time inventory
 control, and features like online picking and automated reorder notifications.</p>
             <p className="text-gray-700 mb-6 text-justify">Our skilled warehouse team is experienced in handling diverse client needs and is
 supported by specialized teams in forwarding and land transportation, ensuring
 seamless integration across the supply chain.</p>
-             <p className="text-gray-700 mb-6 text-justify">With scalable, efficient, and reliable solutions, GGL helps businesses streamline
-operations and drive long-term growth.</p>
+             <p className="text-gray-700 mb-6 text-justify">With scalable, efficient, and reliable solutions, Arabian Future Net Shipping Company helps businesses streamline operations and drive long-term growth.</p>
             </div>
             
             {/* Storage and Distribution Services */}
