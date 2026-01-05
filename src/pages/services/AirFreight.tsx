@@ -80,7 +80,7 @@ const AirFreight = () => {
                 Comprehensive Air Freight Services
               </h2>
               <div className="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
-              <p className="text-gray-700 mb-6 font-normal text-justify">At GGL, we offer a comprehensive range of air freight solutions tailored to meet your time-sensitive and high-priority shipping needs. Our expert air freight teams handle air import, export, and express shipments with precision, offering seamless door-to-door services across global trade lanes.</p>
+              <p className="text-gray-700 mb-6 font-normal text-justify">At Arabian Future Net Shipping Company, we offer a comprehensive range of air freight solutions tailored to meet your time-sensitive and high-priority shipping needs. Our expert air freight teams handle air import, export, and express shipments with precision, offering seamless door-to-door services across global trade lanes.</p>
             </div>
             
             {/* Features Grid */}
