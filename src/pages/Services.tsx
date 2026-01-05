@@ -128,73 +128,60 @@ const ServiceDetailCard = ({
 };
 const Services = () => {
   const isMobile = useIsMobile();
-  const services = [
-    {
-      image: "/1.png",
-      title: "Ocean Freight",
-      description:
-        "Complete FCL and LCL services with flexible sailings, transparent pricing, and a reliable global partner network.",
-      icon: <Anchor />,
-      link: "/services/ocean-freight"
-    },
-    {
-      image: "/2.png",
-      title: "Air Freight",
-      description:
-        "Time-critical air freight solutions with global reach, priority handling, and optimized carrier selection.",
-      icon: <Plane />,
-      link: "/services/air-freight"
-    },
-    {
-      image: "/3.png",
-      title: "Customs Clearance",
-      description:
-        "End-to-end customs brokerage ensuring smooth clearance, regulatory compliance, and on-time delivery.",
-      icon: <FileCheck />,
-      link: "/services/customs-clearance"
-    },
-    {
-      image: "/truck12.png",
-      title: "Transportation",
-      description:
-        "Dedicated domestic transportation fleet enabling fast, reliable, and scalable distribution operations.",
-      icon: <Truck />,
-      link: "/services/transportation"
-    },
-    {
-      image: "/5.png",
-      title: "Warehousing",
-      description:
-        "Secure storage, inventory management, and value-added warehousing solutions for modern supply chains.",
-      icon: <Warehouse />,
-      link: "/services/warehousing"
-    },
-    {
-      image: "/4.png",
-      title: "Project Cargo",
-      description:
-        "Expert handling of oversized, heavy-lift, and complex cargo for infrastructure and industrial projects.",
-      icon: <Package />,
-      link: "/services/project-cargo"
-    },
-    {
-      image: "/6.png",
-      title: "3PL Services",
-      description:
-        "End-to-end third-party logistics solutions including warehousing, distribution, and supply chain management.",
-      icon: <Warehouse />,
-      link: "/services/3pl"
-    }
-  ];
-
+  const services = [{
+    image: "/1.png",
+    title: "Ocean Freight",
+    description: "Complete FCL and LCL services with flexible sailings, transparent pricing, and a reliable global partner network.",
+    icon: <Anchor />,
+    link: "/services/ocean-freight"
+  }, {
+    image: "/2.png",
+    title: "Air Freight",
+    description: "Time-critical air freight solutions with global reach, priority handling, and optimized carrier selection.",
+    icon: <Plane />,
+    link: "/services/air-freight"
+  }, {
+    image: "/3.png",
+    title: "Customs Clearance",
+    description: "End-to-end customs brokerage ensuring smooth clearance, regulatory compliance, and on-time delivery.",
+    icon: <FileCheck />,
+    link: "/services/customs-clearance"
+  }, {
+    image: "/truck12.png",
+    title: "Transportation",
+    description: "Dedicated domestic transportation fleet enabling fast, reliable, and scalable distribution operations.",
+    icon: <Truck />,
+    link: "/services/transportation"
+  }, {
+    image: "/5.png",
+    title: "Warehousing",
+    description: "Secure storage, inventory management, and value-added warehousing solutions for modern supply chains.",
+    icon: <Warehouse />,
+    link: "/services/warehousing"
+  }, {
+    image: "/4.png",
+    title: "Project Cargo",
+    description: "Expert handling of oversized, heavy-lift, and complex cargo for infrastructure and industrial projects.",
+    icon: <Package />,
+    link: "/services/project-cargo"
+  }, {
+    image: "/6.png",
+    title: "3PL Services",
+    description: "End-to-end third-party logistics solutions including warehousing, distribution, and supply chain management.",
+    icon: <Warehouse />,
+    link: "/services/3pl"
+  }];
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.12 }
+      transition: {
+        staggerChildren: 0.12
+      }
     }
   };
-
   const featuredServices = services.slice(0, 3);
   return <div className="min-h-screen flex flex-col">
       <ScrollToTop />
@@ -266,69 +253,7 @@ const Services = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-12 bg-gray-50">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5
-          }} viewport={{
-            once: true
-          }} className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-3">Why Choose Our Logistics Services?</h2>
-              <div className="w-20 h-1 bg-brand-gold mx-auto mb-3"></div>
-              <p className="text-gray-700">We combine industry expertise, advanced technology, and personalized care to deliver exceptional logistics solutions.</p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[{
-              title: "🌍 Global Network",
-              description: "Leverage our extensive worldwide connections for efficient shipping."
-            }, {
-              title: "🎯 Customized Solutions",
-              description: "Tailored logistics plans designed for your business."
-            }, {
-              title: "📡 Advanced Technology",
-              description: "Real-time tracking & cutting-edge logistics systems."
-            }, {
-              title: "👨‍✈️ Expert Team",
-              description: "Industry professionals with years of logistics experience."
-            }, {
-              title: "✅ Regulatory Compliance",
-              description: "Ensure smooth operations with up-to-date knowledge."
-            }, {
-              title: "📞 24/7 Support",
-              description: "Get help anytime with round-the-clock customer service."
-            }].map((feature, index) => <motion.div key={index} initial={{
-              opacity: 0,
-              y: 20
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.5,
-              delay: index * 0.1
-            }} viewport={{
-              once: true
-            }} className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow border-l-4 border-brand-gold">
-                  <h3 className="text-base md:text-lg font-semibold text-gray-800 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 text-xs md:text-sm">{feature.description}</p>
-                </motion.div>)}
-            </div>
-
-            <div className="text-center mt-10">
-              <Link to="/contact">
-                <Button variant="gold" size="lg" className="shadow-md">
-                  Request a Quote
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+        
       </main>
 
       <Footer />
