@@ -46,7 +46,7 @@ const Transportation = () => {
                 duration: 0.5,
                 delay: 0.2
               }}>
-                  <Link to="/contact" className="px-6 py-3 bg-brand-gold hover:bg-amber-400 text-brand-navy font-medium rounded-md shadow-md transition-all">
+                  <Link to="/contact" className="px-6 py-3 bg-amber-400 hover:bg-amber-400 text-brand-navy font-medium rounded-md shadow-md transition-all opacity-100\n">
                     Get a Quote
                   </Link>
                 </motion.div>
