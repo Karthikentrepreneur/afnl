@@ -21,7 +21,7 @@ const About = () => {
             duration: 0.8
           }} className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-50">
-                About <span className="text-brand-green">Arabian Future Net</span>
+                About <span className="text-secondary-foreground">Us</span>
               </h1>
               <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-slate-50">
                 International freight forwarder and logistics provider headquartered in Dammam, Saudi Arabia
@@ -46,7 +46,7 @@ const About = () => {
               once: true
             }}>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                  <span className="text-brand-navy">About Us</span>
+                  
                 </h2>
                 
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
@@ -76,20 +76,10 @@ const About = () => {
               once: true
             }} className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img alt="Arabian Future Net Logistics" className="w-full h-[500px] object-cover" src="/lovable-uploads/41795fb5-562d-45d1-a8d3-f26724bc079b.png" />
+                  <img alt="Arabian Future Net Logistics" className="w-full h-[500px] object-cover" src="/lovable-uploads/d0e6495a-bb04-4ed6-a3af-54a3601dbd89.png" />
                 </div>
                 
-                <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-xl shadow-lg max-w-xs">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 bg-green-100 rounded-lg">
-                      <Globe className="w-6 h-6 text-brand-green" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">WCA Member</h4>
-                      <p className="text-sm text-gray-600">World Cargo Alliance</p>
-                    </div>
-                  </div>
-                </div>
+                
               </motion.div>
             </div>
           </div>
