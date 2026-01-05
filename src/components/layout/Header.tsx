@@ -61,7 +61,7 @@ export const Header = () => {
             <img
               src="/1GlobalEnterprises.png"
               alt="1 Global Enterprises Logo"
-              className={`hidden md:block object-contain h-8 transition-transform duration-300 ease-out ${
+              className={`hidden md:block object-contain h-10 transition-transform duration-300 ease-out ${
                 scrolled ? "scale-[1.05]" : "scale-100"
               }`}
             />
