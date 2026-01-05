@@ -64,7 +64,7 @@ const AirFreight = () => {
                 duration: 0.5
               }} className="rounded-xl overflow-hidden shadow-xl">
                   <AspectRatio ratio={16 / 9}>
-                    <img alt="Air Freight Service" className="w-full h-full object-cover" src="/lovable-uploads/4fca88b2-3d5c-4588-809c-5d8429ca3bfe.png" />
+                    <img alt="Air Freight Service" className="w-full h-full object-cover" src="/lovable-uploads/dee91447-9c78-494b-b9f1-b5bb211850fd.png" />
                   </AspectRatio>
                 </motion.div>
               </div>
