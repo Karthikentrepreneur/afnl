@@ -130,62 +130,71 @@ const Services = () => {
   const isMobile = useIsMobile();
   const services = [
     {
-      id: 1,
-      icon: <Plane className="w-5 h-5" />,
-      title: "Air Freight",
-      image: "/2.png",
-      description: "We offer a comprehensive range of air freight solutions tailored to meet your time-sensitive and high-priority shipping needs.",
-      link: "/services/air-freight"
-    },
-    {
-      id: 2,
-      icon: <Ship className="w-5 h-5" />,
-      title: "Ocean Freight",
       image: "/1.png",
-      description: "Our dedicated Ocean Freight Department specializes in comprehensive freight management services for both LCL and FCL shipments.",
+      title: "Ocean Freight",
+      description:
+        "Complete FCL and LCL services with flexible sailings, transparent pricing, and a reliable global partner network.",
+      icon: <Anchor />,
       link: "/services/ocean-freight"
     },
     {
-      id: 3,
-      icon: <Truck className="w-5 h-5" />,
+      image: "/2.png",
+      title: "Air Freight",
+      description:
+        "Time-critical air freight solutions with global reach, priority handling, and optimized carrier selection.",
+      icon: <Plane />,
+      link: "/services/air-freight"
+    },
+    {
+      image: "/3.png",
+      title: "Customs Clearance",
+      description:
+        "End-to-end customs brokerage ensuring smooth clearance, regulatory compliance, and on-time delivery.",
+      icon: <FileCheck />,
+      link: "/services/customs-clearance"
+    },
+    {
+      image: "/truck12.png",
       title: "Transportation",
-      image: "/trucks.png",
-      description: "We operate a dedicated fleet of vehicles designed to guarantee timely and efficient domestic distribution and delivery services.",
+      description:
+        "Dedicated domestic transportation fleet enabling fast, reliable, and scalable distribution operations.",
+      icon: <Truck />,
       link: "/services/transportation"
     },
     {
-      id: 4,
-      icon: <Warehouse className="w-5 h-5" />,
+      image: "/5.png",
       title: "Warehousing",
-      image: "/warehouse2.png",
-      description: "Leading supply chain solutions provider offering end-to-end logistics services tailored to a wide range of industries.",
+      description:
+        "Secure storage, inventory management, and value-added warehousing solutions for modern supply chains.",
+      icon: <Warehouse />,
       link: "/services/warehousing"
     },
     {
-      id: 5,
-      icon: <Warehouse className="w-5 h-5" />,
-      title: "LCL Consolidation",
-      image: "/lcl.png",
-      description: "LCL Consolidator with global presence covering North America, UK, Middle East, Indian Sub Continent, South East Asia and Far East.",
-      link: "/services/lcl-consolidation"
-    },
-    {
-      id: 6,
-      icon: <Warehouse className="w-5 h-5" />,
-      title: "Project Cargo",
       image: "/4.png",
-      description: "We specialize in delivering end-to-end logistics solutions for complex, heavy, and oversized shipments.",
+      title: "Project Cargo",
+      description:
+        "Expert handling of oversized, heavy-lift, and complex cargo for infrastructure and industrial projects.",
+      icon: <Package />,
       link: "/services/project-cargo"
     },
     {
-      id: 7,
-      icon: <Boxes className="w-5 h-5" />,
+      image: "/6.png",
       title: "3PL Services",
-      image: "/lovable-uploads/warehouse.jpg",
-      description: "End-to-end third-party logistics solutions including warehousing, distribution, and supply chain management.",
+      description:
+        "End-to-end third-party logistics solutions including warehousing, distribution, and supply chain management.",
+      icon: <Warehouse />,
       link: "/services/3pl"
     }
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12 }
+    }
+  };
+
   const featuredServices = services.slice(0, 3);
   return <div className="min-h-screen flex flex-col">
       <ScrollToTop />
