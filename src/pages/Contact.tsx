@@ -37,28 +37,24 @@ const offices = [
 
 const Contact = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
 
       <main className="flex-grow">
-        {/* Hero */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="relative h-[40vh] flex items-center justify-center"
-        >
+        {/* HERO */}
+        <section className="relative h-[40vh] flex items-center justify-center">
           <div className="absolute inset-0 bg-gradient-to-r from-brand-navy to-brand-navy/90" />
           <div className="relative z-10 text-center px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our Offices
+              Contact Us
             </h1>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto">
-              Visit or connect with any of our locations across Saudi Arabia
+            <p className="text-white/90 max-w-2xl mx-auto text-lg">
+              Reach out or visit any of our offices across Saudi Arabia
             </p>
           </div>
-        </motion.section>
+        </section>
 
-        {/* Offices */}
+        {/* OFFICES */}
         <section className="py-16">
           <div className="container mx-auto px-4 space-y-12">
             {offices.map((office, index) => (
@@ -68,33 +64,35 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white p-6 rounded-xl shadow-lg"
+                className="bg-white rounded-xl shadow-md p-6 grid grid-cols-1 lg:grid-cols-2 gap-8"
               >
-                {/* Address */}
+                {/* LEFT – ADDRESS */}
                 <div>
-                  <h2 className="text-2xl font-bold text-brand-navy mb-2">
+                  <h2 className="text-2xl font-bold text-brand-navy mb-1">
                     {office.city}
                   </h2>
                   <p className="text-sm text-gray-500 mb-4">{office.cr}</p>
 
                   <div className="flex items-start gap-2 mb-3">
-                    <MapPin className="text-brand-green mt-1" size={18} />
-                    <p className="text-gray-600">{office.address}</p>
+                    <MapPin size={18} className="text-brand-green mt-1" />
+                    <p className="text-gray-600 leading-relaxed">
+                      {office.address}
+                    </p>
                   </div>
 
                   <div className="flex items-center gap-2 mb-3">
-                    <Phone className="text-brand-green" size={18} />
+                    <Phone size={18} className="text-brand-green" />
                     <p className="text-gray-600">{office.phone}</p>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Mail className="text-brand-green" size={18} />
+                    <Mail size={18} className="text-brand-green" />
                     <p className="text-gray-600">{office.email}</p>
                   </div>
                 </div>
 
-                {/* Map */}
-                <div className="w-full h-[320px] map-wrapper border bg-white">
+                {/* RIGHT – MAP */}
+                <div className="map-wrapper border">
                   <iframe
                     src={office.map}
                     className="map-iframe"
@@ -107,10 +105,12 @@ const Contact = () => {
           </div>
         </section>
       </main>
-       <QuickEnquiry />
+
+      <QuickEnquiry />
       <Footer />
     </div>
   );
 };
 
 export default Contact;
+
