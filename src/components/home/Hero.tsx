@@ -14,11 +14,11 @@ interface PortalLink {
 }
 
 const slides: Slide[] = [
-  { title: 'Ocean Freight', desc: 'Reliable global sea transportation solutions' },
-  { title: 'Transportation', desc: 'Safe and compliant bulk liquid transportation' },
-  { title: 'Warehousing', desc: 'Secure storage and distribution facilities' },
-  { title: 'Customs Clearance', desc: 'Smooth and compliant border clearance services' },
-  { title: 'Project Cargo', desc: 'End-to-end handling of oversized shipments' },
+  { title: 'Ocean Freight', desc: '' },
+  { title: 'Transportation', desc: '' },
+  { title: 'Warehousing', desc: '' },
+  { title: 'Customs Clearance', desc: '' },
+  { title: 'Project Cargo', desc: '' },
 ];
 
 const portalLinks: PortalLink[] = [
@@ -30,7 +30,7 @@ const portalLinks: PortalLink[] = [
 ];
 
 const Hero: React.FC = () => {
-  const [active, setActive] = useState<number>(0);
+  const [, setActive] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
     <section className="relative min-h-screen overflow-hidden">
       {/* VIDEO BACKGROUND */}
       <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover"
         src="/heroone.mp4"
         autoPlay
         loop
@@ -52,19 +52,6 @@ const Hero: React.FC = () => {
         playsInline
         preload="auto"
       />
-
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/45 z-[1]" />
-
-      {/* TEXT CONTENT */}
-      <div className="absolute top-1/2 left-6 md:left-16 -translate-y-1/2 z-[3] max-w-md">
-        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-          {slides[active].title}
-        </h2>
-        <p className="mt-3 text-white/85 text-sm sm:text-base md:text-lg">
-          {slides[active].desc}
-        </p>
-      </div>
 
       {/* BOTTOM BUTTONS */}
       <div className="absolute bottom-20 left-0 right-0 z-[5] px-4">
