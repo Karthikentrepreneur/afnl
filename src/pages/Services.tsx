@@ -133,7 +133,7 @@ const Services = () => {
 
       // Fetch services list
       const servicesResult = await client.fetch(`
-        *[_type == "service"] | order(title asc) {
+        *[_type == "service"] | order(publishedAt desc) {
           title,
           description,
           mainImage,
