@@ -35,5 +35,10 @@ export default defineType({
       title: 'Footer Text',
       type: 'text',
     }),
+    defineField({
+      name: 'seo',
+      title: 'Default SEO',
+      type: 'seo',
+    }),
   ],
 })

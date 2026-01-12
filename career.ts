@@ -33,5 +33,10 @@ export default defineType({
       title: 'Job Description',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+    }),
   ],
 })

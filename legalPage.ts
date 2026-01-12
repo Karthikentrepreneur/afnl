@@ -21,5 +21,15 @@ export default defineType({
       title: 'Content',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'lastUpdated',
+      title: 'Last Updated',
+      type: 'date',
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+    }),
   ],
 })

@@ -21,12 +21,12 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'mission',
-      title: 'Mission Section',
+      name: 'mainSection',
+      title: 'Main Content Section',
       type: 'object',
       fields: [
         defineField({ name: 'title', type: 'string', title: 'Title' }),
-        defineField({ name: 'content', type: 'text', title: 'Content' }),
+        defineField({ name: 'content', type: 'blockContent', title: 'Content' }),
         defineField({ name: 'image', type: 'image', title: 'Image', options: { hotspot: true } }),
       ],
     }),
@@ -38,6 +38,20 @@ export default defineType({
         defineField({ name: 'title', type: 'string', title: 'Title' }),
         defineField({ name: 'content', type: 'text', title: 'Content' }),
       ],
+    }),
+    defineField({
+      name: 'mission',
+      title: 'Mission Card',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string', title: 'Title' }),
+        defineField({ name: 'content', type: 'text', title: 'Content' }),
+      ],
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
     }),
   ],
 })

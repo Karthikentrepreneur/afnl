@@ -11,6 +11,8 @@ import homePage from './homePage'
 import aboutPage from './aboutPage'
 import contactPage from './contactPage'
 import siteSettings from './siteSettings'
+import seo from './seo'
+import servicesPage from './servicesPage'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -26,5 +28,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutPage,
     contactPage,
     siteSettings,
+    seo,
+    servicesPage,
   ],
 }

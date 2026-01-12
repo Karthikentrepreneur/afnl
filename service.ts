@@ -37,5 +37,21 @@ export default defineType({
       title: 'Content',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'cta',
+      title: 'CTA Section',
+      type: 'object',
+      fields: [
+        defineField({ name: 'title', type: 'string', title: 'Title' }),
+        defineField({ name: 'description', type: 'text', title: 'Description' }),
+        defineField({ name: 'buttonText', type: 'string', title: 'Button Text' }),
+        defineField({ name: 'link', type: 'string', title: 'Button Link' }),
+      ],
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+    }),
   ],
 })
