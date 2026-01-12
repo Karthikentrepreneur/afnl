@@ -23,6 +23,7 @@ import CustomsClearance from "./pages/services/CustomsClearance";
 import ThreePL from "./pages/services/ThreePL";
 import GlobalPresence from "./pages/GlobalPresence";
 import { ScrollToTop } from "./components/common/ScrollToTop";
+import StudioPage from "./pages/StudioPage";
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ function App() {
             <Route path="/terms-and-conditions" element={<TermsOfUse />} />
             <Route path="/services/transportation" element={<Transportation />} />
             <Route path="/global-presence" element={<GlobalPresence />} />
+            <Route path="/studio/*" element={<StudioPage />} />
             {/* Service specific pages */}
             <Route path="/services/liquid-transportation" element={<LiquidTransportation />} />
             <Route path="/services/air-freight" element={<AirFreight />} />
