@@ -1,16 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { client } from '../../client';
+import { PortableText } from '@portabletext/react';
 import { Seo } from '@/components/common/Seo';
 
 const PrivacyPolicyPage: React.FC = () => {
-  const [isLoaded] = useState(true);
-  const data = {
-    title: 'Privacy Policy',
-    lastUpdated: new Date().toISOString(),
-    content: 'Privacy Policy content is currently being updated. Please check back later.',
-    seo: null
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await client.fetch(`
+        *[_type == "legalPage" && slug.current == "privacy-policy"][0] {
+          title,
+          lastUpdated,
+          content,
+          seo
+        }
+      `);
+      setData(result);
+      setIsLoaded(true);
+    };
+    fetchData();
+  }, []);
+
+  const components = {
+    block: {
+      h2: ({children}: any) => <h2 className="text-2xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2 mt-12">{children}</h2>,
+      h3: ({children}: any) => <h3 className="text-xl font-medium text-gray-900 mb-4 mt-8">{children}</h3>,
+      normal: ({children}: any) => <p className="text-gray-700 leading-relaxed mb-6">{children}</p>,
+    },
+    list: {
+      bullet: ({children}: any) => <ul className="list-disc ml-6 mb-6 space-y-2 text-gray-700">{children}</ul>,
+    }
   };
 
   return <div className={`min-h-screen bg-gray-50 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -28,7 +52,7 @@ const PrivacyPolicyPage: React.FC = () => {
           </div>
 
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed mb-6">{data.content}</p>
+            {data?.content ? <PortableText value={data.content} components={components} /> : <p>Loading content...</p>}
           </div>
 
           <div className="mt-12 bg-blue-50 rounded-lg p-6 border border-blue-200">

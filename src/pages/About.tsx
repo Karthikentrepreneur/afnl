@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
 import { Globe, Clock, Users, Award, Target, Eye } from 'lucide-react';
+import { client } from '../../client';
+import { urlFor } from '../../image';
+import { PortableText } from '@portabletext/react';
 import { Seo } from '@/components/common/Seo';
 
 const About = () => {
-  const displayData = {
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await client.fetch(`
+        *[_type == "aboutPage"][0] {
+          hero,
+          mainSection,
+          vision,
+          mission,
+          seo
+        }
+      `);
+      setData(result);
+    };
+    fetchData();
+  }, []);
+
+  const defaultContent = {
     hero: {
       title: 'About',
       subtitle: 'International freight forwarder and logistics provider headquartered in Dammam, Saudi Arabia'
@@ -33,7 +54,7 @@ const About = () => {
           ]
         }
       ],
-      image: "/lovable-uploads/5393fdcb-7f92-46b2-81be-d1997d8dc3a6.jpg"
+      image: null
     },
     vision: {
       title: 'Our Vision',
@@ -42,9 +63,10 @@ const About = () => {
     mission: {
       title: 'Our Mission',
       content: "To be customers' first choice for customised logistics solutions with integrated processes, advanced WMS & distribution module with e-commerce capability, FCL, LCL, Air Freight, Freight Management, Liquid Transportation solutions, Projects & Break Bulk."
-    },
-    seo: null
+    }
   };
+
+  const displayData = data || defaultContent;
 
   return <div className="min-h-screen flex flex-col bg-gray-50">
       <Seo data={displayData?.seo} defaultTitle="About Us" />
@@ -93,9 +115,7 @@ const About = () => {
                 </h2>
                 
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-                  {displayData?.mainSection?.content?.map((block: any, index: number) => (
-                    <p key={index}>{block.children[0].text}</p>
-                  ))}
+                  {displayData?.mainSection?.content && <PortableText value={displayData.mainSection.content} />}
                 </div>
               </motion.div>
 
@@ -114,7 +134,7 @@ const About = () => {
                   <img 
                     alt={displayData?.mainSection?.title || "Arabian Future Net Logistics"} 
                     className="w-full h-[500px] object-cover" 
-                    src={displayData?.mainSection?.image} 
+                    src={displayData?.mainSection?.image ? urlFor(displayData.mainSection.image).url() : "/lovable-uploads/5393fdcb-7f92-46b2-81be-d1997d8dc3a6.jpg"} 
                   />
                 </div>
                 

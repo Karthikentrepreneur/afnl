@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from 'framer-motion';
 import { Users, TrendingUp, Heart, Globe, Award, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { client } from '../../client';
+import { urlFor } from '../../image';
 import { Seo } from '@/components/common/Seo';
 
 const Careers = () => {
-  const data = {
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await client.fetch(`
+        *[_type == "careersPage"][0] {
+          hero,
+          benefits,
+          cta,
+          seo
+        }
+      `);
+      setData(result);
+    };
+    fetchData();
+  }, []);
+
+  const defaultContent = {
     hero: {
       title: 'Join Our Global Team',
       description: "Build your career with one of Singapore's leading logistics companies. We're looking for passionate individuals to join our mission of connecting the world through exceptional logistics solutions.",
@@ -31,6 +50,8 @@ const Careers = () => {
     seo: null
   };
 
+  const displayData = data || defaultContent;
+
   const getIcon = (iconName: string) => {
     const icons: any = {
       Users: <Users className="h-6 w-6 text-brand-gold" />,
@@ -44,12 +65,21 @@ const Careers = () => {
   };
 
   return <div className="min-h-screen flex flex-col">
-      <Seo data={data?.seo} defaultTitle="Careers" />
+      <Seo data={displayData?.seo} defaultTitle="Careers" />
       <Header />
 
       <main className="flex-grow pt-20">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white py-16 overflow-hidden">
+          {displayData?.hero?.image && (
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={urlFor(displayData.hero.image).url()} 
+                alt="Careers Hero" 
+                className="w-full h-full object-cover opacity-20"
+              />
+            </div>
+          )}
           <div className="container mx-auto px-4">
             <motion.div initial={{
             opacity: 0,
@@ -61,10 +91,10 @@ const Careers = () => {
             duration: 0.8
           }} className="text-center max-w-3xl mx-auto relative z-10">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-50">
-                {data?.hero?.title || 'Join Our Global Team'}
+                {displayData?.hero?.title || 'Join Our Global Team'}
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                {data?.hero?.description || "Build your career with one of Singapore's leading logistics companies. We're looking for passionate individuals to join our mission of connecting the world through exceptional logistics solutions."}
+                {displayData?.hero?.description || "Build your career with one of Singapore's leading logistics companies. We're looking for passionate individuals to join our mission of connecting the world through exceptional logistics solutions."}
               </p>
               <Button variant="gold" size="lg" className="font-semibold">
                 View Open Positions
@@ -87,15 +117,15 @@ const Careers = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-brand-navy mb-4">{data?.benefits?.title || 'Why Choose GGL?'}</h2>
+              <h2 className="text-3xl font-bold text-brand-navy mb-4">{displayData?.benefits?.title || 'Why Choose GGL?'}</h2>
               <div className="w-24 h-1 bg-brand-gold mx-auto mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                {data?.benefits?.description || 'At GGL, we believe our people are our greatest asset. We foster an environment where talent thrives and careers flourish.'}
+                {displayData?.benefits?.description || 'At GGL, we believe our people are our greatest asset. We foster an environment where talent thrives and careers flourish.'}
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {data?.benefits?.items?.map((benefit: any, index: number) => <motion.div key={index} initial={{
+              {displayData?.benefits?.items?.map((benefit: any, index: number) => <motion.div key={index} initial={{
               opacity: 0,
               y: 20
             }} whileInView={{
@@ -152,6 +182,15 @@ const Careers = () => {
 
         {/* CTA Section */}
         <section className="py-16 bg-gradient-to-r from-brand-navy to-brand-navy/90 text-white relative overflow-hidden">
+          {displayData?.cta?.image && (
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={urlFor(displayData.cta.image).url()} 
+                alt="CTA Background" 
+                className="w-full h-full object-cover opacity-20"
+              />
+            </div>
+          )}
           <div className="container mx-auto px-4">
             <motion.div initial={{
             opacity: 0,
@@ -164,9 +203,9 @@ const Careers = () => {
           }} viewport={{
             once: true
           }} className="text-center relative z-10">
-              <h2 className="text-3xl font-bold mb-4 text-slate-50">{data?.cta?.title || 'Ready to Start Your Journey?'}</h2>
+              <h2 className="text-3xl font-bold mb-4 text-slate-50">{displayData?.cta?.title || 'Ready to Start Your Journey?'}</h2>
               <p className="text-xl mb-8 text-blue-100">
-                {data?.cta?.description || "Don't see the right position? Send us your resume and we'll keep you in mind for future opportunities."}
+                {displayData?.cta?.description || "Don't see the right position? Send us your resume and we'll keep you in mind for future opportunities."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="gold" size="lg" className="font-semibold">

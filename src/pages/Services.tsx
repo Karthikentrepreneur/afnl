@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { client } from '../../client';
+import { urlFor } from '../../image';
 import { Seo } from '@/components/common/Seo';
 
 // Scroll to Top on Route Change
@@ -115,7 +117,33 @@ const ServiceCard = ({
 
 const Services = () => {
   const isMobile = useIsMobile();
-  const pageData = { hero: null, seo: null };
+  const [pageData, setPageData] = useState<any>(null);
+  const [servicesData, setServicesData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Fetch page data
+      const pageResult = await client.fetch(`
+        *[_type == "servicesPage"][0] {
+          hero,
+          seo
+        }
+      `);
+      setPageData(pageResult);
+
+      // Fetch services list
+      const servicesResult = await client.fetch(`
+        *[_type == "service"] | order(title asc) {
+          title,
+          description,
+          mainImage,
+          slug
+        }
+      `);
+      setServicesData(servicesResult);
+    };
+    fetchData();
+  }, []);
 
   const getIconForService = (title: string) => {
     const lowerTitle = title.toLowerCase();
@@ -129,7 +157,14 @@ const Services = () => {
     return <Warehouse />;
   };
 
-  const services = [
+  const services = servicesData.length > 0 ? servicesData.map(s => ({
+    image: s.mainImage ? urlFor(s.mainImage).url() : "/1.png",
+    title: s.title,
+    description: s.description,
+    icon: getIconForService(s.title),
+    link: `/services/${s.slug?.current || ''}`
+  })) : [
+    // Fallback data if no services in Sanity yet
     {
       image: "/1.png",
       title: "Ocean Freight",
@@ -193,7 +228,7 @@ const Services = () => {
       icon: <Warehouse />,
       link: "/services/3pl"
     }
-  ];
+  ]; 
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -206,7 +241,7 @@ const Services = () => {
         <section className="bg-gradient-to-r from-brand-green to-emerald-700 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="/lovable-uploads/gp.jpg.tf"
+              src={pageData?.hero?.image ? urlFor(pageData.hero.image).url() : "/lovable-uploads/gp.jpg.tf"}
               alt="Services"
               className="w-full h-full object-cover opacity-20"
             />

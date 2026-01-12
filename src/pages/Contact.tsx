@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 import QuickEnquiry from "@/components/home/QuickEnquiry";
+import { client } from '../../client';
 import { Seo } from '@/components/common/Seo';
 
 const Contact = () => {
-  const data = { hero: null, seo: null };
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await client.fetch(`
+        *[_type == "contactPage"][0] {
+          hero,
+          offices,
+          seo
+        }
+      `);
+      setData(result);
+    };
+    fetchData();
+  }, []);
 
   const defaultOffices = [
     {
@@ -36,7 +51,7 @@ const Contact = () => {
     }
   ];
 
-  const offices = defaultOffices;
+  const offices = data?.offices || defaultOffices;
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">

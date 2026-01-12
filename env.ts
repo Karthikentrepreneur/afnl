@@ -1,20 +1,7 @@
-export const apiVersion =
-  import.meta.env.VITE_SANITY_API_VERSION || '2024-01-01'
+// This file can be used to hold environment variables.
+// Remember to add your Sanity project ID.
 
-export const dataset = assertValue(
-  import.meta.env.VITE_SANITY_DATASET || 'production',
-  'Missing environment variable: VITE_SANITY_DATASET'
-)
-
-export const projectId = assertValue(
-  import.meta.env.VITE_SANITY_PROJECT_ID || '2mmbn49i',
-  'Missing environment variable: VITE_SANITY_PROJECT_ID'
-)
-
-function assertValue<T>(v: T | undefined, errorMessage: string): T {
-  if (v === undefined) {
-    console.warn(errorMessage)
-    return undefined as unknown as T
-  }
-  return v
-}
+export const apiVersion = process.env.SANITY_STUDIO_API_VERSION || '2024-01-01'
+export const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
+export const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'your_project_id_here' // <-- ADD YOUR PROJECT ID HERE
+export const useCdn = false
