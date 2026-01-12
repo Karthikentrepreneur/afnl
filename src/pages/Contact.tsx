@@ -1,61 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 import QuickEnquiry from "@/components/home/QuickEnquiry";
-import { client } from '../../client';
-import { Seo } from '@/components/common/Seo';
+
+const offices = [
+  {
+    city: "Dammam (Headquarter)",
+    cr: "CR No: 2050159935",
+    address:
+      "Building No.2817, Secondary No9403, King Faisal Road, Al Tubebayshi Dist., Dammam, KSA 32233",
+    phone: "+966 13 343 0003",
+    email: "info.sa@futurenetlogistics.com",
+    map: "https://www.google.com/maps/d/embed?mid=1PGeR21X0gkhMgwbEQ1wziKMNJxtPLtA&ehbc=2E312F&noprof=1",
+  },
+  {
+    city: "Riyadh",
+    cr: "CR No: 1010867642",
+    address:
+      "Room No. T18, Rail Business Centre, Bldg No. 3823, Omar Aimukhtar St, Thulaim, Riyadh 11332",
+    phone: "+966 11295 0020",
+    email: "info.sa@futurenetlogistics.com",
+    map: "https://www.google.com/maps/d/embed?mid=1FX9YaRjZDnKIpTb7ysNk8hs42t0m8kQ&ehbc=2E312F&noprof=1",
+  },
+  {
+    city: "Jeddah",
+    cr: "CR No: 4030498909",
+    address:
+      "Room No: 408, Saudi Business Centre 7859, Al-Madinah Al-Munawarah Road, Al Sharafeyah, Jeddah 4542-22234",
+    phone: "+966 12 578 0874",
+    email: "info.sa@futurenetlogistics.com",
+    map: "https://www.google.com/maps/d/embed?mid=1nCIw5f2uLw0g_6L6jZDYZRKv8IXf_2M&ehbc=2E312F&noprof=1",
+  },
+];
 
 const Contact = () => {
-  const [data, setData] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await client.fetch(`
-        *[_type == "contactPage"][0] {
-          hero,
-          offices,
-          seo
-        }
-      `);
-      setData(result);
-    };
-    fetchData();
-  }, []);
-
-  const defaultOffices = [
-    {
-      city: "Dammam (Head Office)",
-      cr: "CR: 2050064883",
-      address: "King Khalid Street, Al-Gluss Tower, 11th Floor, Office No. 1103, P.O. Box: 6642, Dammam 31452, Kingdom of Saudi Arabia",
-      phone: "+966 13 835 2255",
-      email: "info@afnl.com.sa",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.697072667634!2d50.10777831503556!3d26.43333398333636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fb6c6c6c6c6d%3A0x6c6c6c6c6c6c6c6d!2sAl%20Gluss%20Tower!5e0!3m2!1sen!2ssa!4v1625000000000!5m2!1sen!2ssa"
-    },
-    {
-      city: "Jeddah",
-      cr: "CR: 4030260662",
-      address: "Al-Madina Road, Al-Sharafia District, Al-Sharafia Plaza, 2nd Floor, Office No. 203, P.O. Box: 12345, Jeddah 21473, Kingdom of Saudi Arabia",
-      phone: "+966 12 650 0000",
-      email: "jeddah@afnl.com.sa",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.697072667634!2d39.10777831503556!3d21.43333398333636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDI2JzAwLjAiTiAzOcKwMDYnMjguMCJF!5e0!3m2!1sen!2ssa!4v1625000000000!5m2!1sen!2ssa"
-    },
-    {
-      city: "Riyadh",
-      cr: "CR: 1010449266",
-      address: "Olaya Street, Al-Olaya District, Al-Olaya Center, 3rd Floor, Office No. 305, P.O. Box: 54321, Riyadh 11593, Kingdom of Saudi Arabia",
-      phone: "+966 11 460 0000",
-      email: "riyadh@afnl.com.sa",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.697072667634!2d46.67527831503556!3d24.71361198333636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ5LjAiTiA0NsKwNDAnMzEuMCJF!5e0!3m2!1sen!2ssa!4v1625000000000!5m2!1sen!2ssa"
-    }
-  ];
-
-  const offices = data?.offices || defaultOffices;
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <Seo data={data?.seo} defaultTitle="Contact Us" />
       <Header />
 
       <main className="flex-grow">
@@ -64,10 +46,10 @@ const Contact = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-brand-navy to-brand-navy/90" />
           <div className="relative z-10 text-center px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {data?.hero?.title || 'Contact Us'}
+              Contact Us
             </h1>
             <p className="text-white/90 max-w-2xl mx-auto text-lg">
-              {data?.hero?.subtitle || 'Reach out or visit any of our offices across Saudi Arabia'}
+              Reach out or visit any of our offices across Saudi Arabia
             </p>
           </div>
         </section>
@@ -75,7 +57,7 @@ const Contact = () => {
         {/* OFFICES */}
         <section className="py-16">
           <div className="container mx-auto px-4 space-y-12">
-            {offices.map((office: any, index: number) => (
+            {offices.map((office, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -111,14 +93,12 @@ const Contact = () => {
 
                 {/* RIGHT – MAP */}
                 <div className="map-wrapper border">
-                  {office.mapUrl && (
-                    <iframe
-                      src={office.mapUrl}
-                      className="map-iframe"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                  )}
+                  <iframe
+                    src={office.map}
+                    className="map-iframe"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
               </motion.div>
             ))}

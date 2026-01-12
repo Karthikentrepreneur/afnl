@@ -1,7 +1,7 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
-import { schema } from './index'
+import { schemaTypes } from './sanity/schema'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from './env'
@@ -11,7 +11,9 @@ export default defineConfig({
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
-  schema,
+  schema: {
+    types: schemaTypes,
+  },
   plugins: [
     structureTool(),
     // Vision is a tool that lets you query your content with GROQ in the studio

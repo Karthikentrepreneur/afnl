@@ -16,7 +16,6 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { client } from '../../client';
 import { urlFor } from '../../image';
-import { Seo } from '@/components/common/Seo';
 
 // Scroll to Top on Route Change
 const ScrollToTop = () => {
@@ -72,7 +71,6 @@ const ServiceCard = ({
           <AspectRatio ratio={16 / 9}>
             <img
               src={getServiceImage()}
-              src={image}
               alt={title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -89,7 +87,7 @@ const ServiceCard = ({
 
         {/* CONTENT */}
         <div className="p-4 flex-grow flex flex-col">
-          <p className="text-gray-600 mb-4 text-sm">
+          <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
             {description}
           </p>
 
@@ -129,6 +127,7 @@ const Services = () => {
           seo
         }
       `);
+      console.log("Sanity Page Data:", pageResult);
       setPageData(pageResult);
 
       // Fetch services list
@@ -140,6 +139,7 @@ const Services = () => {
           slug
         }
       `);
+      console.log("Sanity Services Data:", servicesResult);
       setServicesData(servicesResult);
     };
     fetchData();
@@ -168,63 +168,56 @@ const Services = () => {
     {
       image: "/1.png",
       title: "Ocean Freight",
-      description: "Complete FCL and LCL services with flexible sailings, transparent pricing, and a reliable global partner network.",
+      description:
+        "Complete FCL and LCL services with flexible sailings, transparent pricing, and a reliable global partner network.",
       icon: <Anchor />,
       link: "/services/ocean-freight"
     },
     {
       image: "/2.png",
       title: "Air Freight",
-      description: "Fast and reliable air freight solutions for time-sensitive cargo, ensuring global reach and timely delivery.",
+      description:
+        "Time-critical air freight solutions with global reach, priority handling, and optimized carrier selection.",
       icon: <Plane />,
       link: "/services/air-freight"
     },
     {
+      image: "/3.png",
+      title: "Customs Clearance",
+      description:
+        "End-to-end customs brokerage ensuring smooth clearance, regulatory compliance, and on-time delivery.",
+      icon: <FileCheck />,
+      link: "/services/customs-clearance"
+    },
+    {
       image: "/truck12.png",
       title: "Transportation",
-      description: "Efficient land transportation network connecting major hubs with reliable fleet management and tracking.",
+      description:
+        "Dedicated domestic transportation fleet enabling fast, reliable, and scalable distribution operations.",
       icon: <Truck />,
       link: "/services/transportation"
     },
     {
       image: "/5.png",
       title: "Warehousing",
-      description: "State-of-the-art warehousing facilities with inventory management and value-added services.",
+      description:
+        "Secure storage, inventory management, and value-added warehousing solutions for modern supply chains.",
       icon: <Warehouse />,
       link: "/services/warehousing"
     },
     {
-      image: "/3.png",
-      title: "Customs Clearance",
-      description: "Expert handling of customs documentation and compliance to ensure smooth border crossings.",
-      icon: <FileCheck />,
-      link: "/services/customs-clearance"
-    },
-    {
-      image: "/lovable-uploads/4352121a-5a9c-4997-9683-5b5422daf721.png",
+      image: "/4.png",
       title: "Project Cargo",
-      description: "Specialized handling for oversized and heavy cargo requiring complex logistics planning.",
+      description:
+        "Expert handling of oversized, heavy-lift, and complex cargo for infrastructure and industrial projects.",
       icon: <Package />,
       link: "/services/project-cargo"
     },
     {
-      image: "/lovable-uploads/liquid.jpg",
-      title: "Liquid Transportation",
-      description: "Safe and compliant transportation of liquid cargo using specialized tankers and ISO tanks.",
-      icon: <Droplets />,
-      link: "/services/liquid-transportation"
-    },
-    {
-      image: "/lovable-uploads/lcl.png",
-      title: "LCL Consolidation",
-      description: "Cost-effective consolidation services for smaller shipments to major global destinations.",
-      icon: <Package />,
-      link: "/services/lcl-consolidation"
-    },
-    {
-      image: "/lovable-uploads/gp.jpg.tf",
+      image: "/6.png",
       title: "3PL Services",
-      description: "Comprehensive third-party logistics solutions optimizing your supply chain efficiency.",
+      description:
+        "End-to-end third-party logistics solutions including warehousing, distribution, and supply chain management.",
       icon: <Warehouse />,
       link: "/services/3pl"
     }
@@ -232,7 +225,6 @@ const Services = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Seo data={pageData?.seo} defaultTitle="Our Services" />
       <ScrollToTop />
       <Header />
 
@@ -256,11 +248,11 @@ const Services = () => {
               className="text-center max-w-3xl mx-auto"
             >
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
-                {pageData?.hero?.title || 'Our Logistics Services'}
+                {pageData?.hero?.title || "Our Logistics Services"}
               </h1>
               <div className="w-20 h-1 bg-amber-400 mx-auto mb-6" />
               <p className="text-lg text-white/90">
-                {pageData?.hero?.subtitle || 'From air and ocean freight to specialized transportation solutions, we deliver end-to-end logistics excellence.'}
+                {pageData?.hero?.subtitle || "From air and ocean freight to specialized transportation solutions, we deliver end-to-end logistics excellence."}
               </p>
             </motion.div>
           </div>
