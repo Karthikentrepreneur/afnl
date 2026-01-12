@@ -27,8 +27,49 @@ const About = () => {
     fetchData();
   }, []);
 
+  const defaultContent = {
+    hero: {
+      title: 'About',
+      subtitle: 'International freight forwarder and logistics provider headquartered in Dammam, Saudi Arabia'
+    },
+    mainSection: {
+      title: 'Who We Are',
+      content: [
+        {
+          _type: 'block',
+          children: [
+            {
+              _type: 'span',
+              text: 'Arabian Future Net Shipping Company is an international freight forwarder and logistics provider with headquarters in Dammam and branch offices in Jeddah and Riyadh. We offer premium logistics services to businesses worldwide, including a wide range of international and domestic transportation and logistics services.'
+            }
+          ]
+        },
+        {
+          _type: 'block',
+          children: [
+            {
+              _type: 'span',
+              text: 'We provide seamless integration of various transportation modes such as sea freight, air freight, and road freight, as well as diversified logistics services in warehousing and material handling. Arabian Future Net is well equipped to handle worldwide door-to-door delivery, customs clearance, dangerous or perishable goods, break bulk, and project cargo.'
+            }
+          ]
+        }
+      ],
+      image: null
+    },
+    vision: {
+      title: 'Our Vision',
+      content: 'Arabian Future Net, to be the leading global logistics solution provider through our most advanced systems combined with well experienced logistics professionals.'
+    },
+    mission: {
+      title: 'Our Mission',
+      content: "To be customers' first choice for customised logistics solutions with integrated processes, advanced WMS & distribution module with e-commerce capability, FCL, LCL, Air Freight, Freight Management, Liquid Transportation solutions, Projects & Break Bulk."
+    }
+  };
+
+  const displayData = data || defaultContent;
+
   return <div className="min-h-screen flex flex-col bg-gray-50">
-      <Seo data={data?.seo} defaultTitle="About Us" />
+      <Seo data={displayData?.seo} defaultTitle="About Us" />
       <Header />
 
       <main className="flex-grow">
@@ -45,10 +86,10 @@ const About = () => {
             duration: 0.8
           }} className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-50">
-                {data?.hero?.title || 'About'} <span className="text-secondary-foreground">Us</span>
+                {displayData?.hero?.title || 'About'} <span className="text-secondary-foreground">Us</span>
               </h1>
               <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-slate-50">
-                {data?.hero?.subtitle || 'International freight forwarder and logistics provider headquartered in Dammam, Saudi Arabia'}
+                {displayData?.hero?.subtitle || 'International freight forwarder and logistics provider headquartered in Dammam, Saudi Arabia'}
               </p>
             </motion.div>
           </div>
@@ -70,11 +111,11 @@ const About = () => {
               once: true
             }}>
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                  {data?.mainSection?.title}
+                  {displayData?.mainSection?.title}
                 </h2>
                 
                 <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-                  {data?.mainSection?.content && <PortableText value={data.mainSection.content} />}
+                  {displayData?.mainSection?.content && <PortableText value={displayData.mainSection.content} />}
                 </div>
               </motion.div>
 
@@ -91,9 +132,9 @@ const About = () => {
             }} className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
-                    alt={data?.mainSection?.title || "Arabian Future Net Logistics"} 
+                    alt={displayData?.mainSection?.title || "Arabian Future Net Logistics"} 
                     className="w-full h-[500px] object-cover" 
-                    src={data?.mainSection?.image ? urlFor(data.mainSection.image).url() : "/lovable-uploads/5393fdcb-7f92-46b2-81be-d1997d8dc3a6.jpg"} 
+                    src={displayData?.mainSection?.image ? urlFor(displayData.mainSection.image).url() : "/lovable-uploads/5393fdcb-7f92-46b2-81be-d1997d8dc3a6.jpg"} 
                   />
                 </div>
                 
@@ -120,10 +161,10 @@ const About = () => {
             }} className="bg-brand-navy p-8 rounded-xl text-white">
                 <div className="flex items-center gap-3 mb-4">
                   <Eye className="w-8 h-8 text-white" />
-                  <h3 className="text-2xl font-bold text-primary-foreground">{data?.vision?.title || 'Our Vision'}</h3>
+                  <h3 className="text-2xl font-bold text-primary-foreground">{displayData?.vision?.title || 'Our Vision'}</h3>
                 </div>
                 <p className="text-white/90">
-                  {data?.vision?.content || 'Arabian Future Net, to be the leading global logistics solution provider through our most advanced systems combined with well experienced logistics professionals.'}
+                  {displayData?.vision?.content || 'Arabian Future Net, to be the leading global logistics solution provider through our most advanced systems combined with well experienced logistics professionals.'}
                 </p>
               </motion.div>
 
@@ -141,10 +182,10 @@ const About = () => {
             }} className="bg-brand-green p-8 rounded-xl text-white">
                 <div className="flex items-center gap-3 mb-4">
                   <Target className="w-8 h-8 text-white" />
-                  <h3 className="text-2xl font-bold text-primary-foreground">{data?.mission?.title || 'Our Mission'}</h3>
+                  <h3 className="text-2xl font-bold text-primary-foreground">{displayData?.mission?.title || 'Our Mission'}</h3>
                 </div>
                 <p className="text-white/90">
-                  {data?.mission?.content || "To be customers' first choice for customised logistics solutions with integrated processes, advanced WMS & distribution module with e-commerce capability, FCL, LCL, Air Freight, Freight Management, Liquid Transportation solutions, Projects & Break Bulk."}
+                  {displayData?.mission?.content || "To be customers' first choice for customised logistics solutions with integrated processes, advanced WMS & distribution module with e-commerce capability, FCL, LCL, Air Freight, Freight Management, Liquid Transportation solutions, Projects & Break Bulk."}
                 </p>
               </motion.div>
             </div>

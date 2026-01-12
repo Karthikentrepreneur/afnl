@@ -9,7 +9,8 @@ import {
   Truck,
   Anchor,
   Warehouse,
-  Package
+  Package,
+  Droplets
 } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -88,7 +89,7 @@ const ServiceCard = ({
 
         {/* CONTENT */}
         <div className="p-4 flex-grow flex flex-col">
-          <p className="text-gray-600 mb-4 line-clamp-3 text-sm">
+          <p className="text-gray-600 mb-4 text-sm">
             {description}
           </p>
 
@@ -152,6 +153,7 @@ const Services = () => {
     if (lowerTitle.includes('transport')) return <Truck />;
     if (lowerTitle.includes('warehous')) return <Warehouse />;
     if (lowerTitle.includes('project')) return <Package />;
+    if (lowerTitle.includes('liquid')) return <Droplets />;
     return <Warehouse />;
   };
 
@@ -170,7 +172,62 @@ const Services = () => {
       icon: <Anchor />,
       link: "/services/ocean-freight"
     },
-    // ... (keep other fallbacks if desired, or just show empty)
+    {
+      image: "/2.png",
+      title: "Air Freight",
+      description: "Fast and reliable air freight solutions for time-sensitive cargo, ensuring global reach and timely delivery.",
+      icon: <Plane />,
+      link: "/services/air-freight"
+    },
+    {
+      image: "/truck12.png",
+      title: "Transportation",
+      description: "Efficient land transportation network connecting major hubs with reliable fleet management and tracking.",
+      icon: <Truck />,
+      link: "/services/transportation"
+    },
+    {
+      image: "/5.png",
+      title: "Warehousing",
+      description: "State-of-the-art warehousing facilities with inventory management and value-added services.",
+      icon: <Warehouse />,
+      link: "/services/warehousing"
+    },
+    {
+      image: "/3.png",
+      title: "Customs Clearance",
+      description: "Expert handling of customs documentation and compliance to ensure smooth border crossings.",
+      icon: <FileCheck />,
+      link: "/services/customs-clearance"
+    },
+    {
+      image: "/lovable-uploads/4352121a-5a9c-4997-9683-5b5422daf721.png",
+      title: "Project Cargo",
+      description: "Specialized handling for oversized and heavy cargo requiring complex logistics planning.",
+      icon: <Package />,
+      link: "/services/project-cargo"
+    },
+    {
+      image: "/lovable-uploads/liquid.jpg",
+      title: "Liquid Transportation",
+      description: "Safe and compliant transportation of liquid cargo using specialized tankers and ISO tanks.",
+      icon: <Droplets />,
+      link: "/services/liquid-transportation"
+    },
+    {
+      image: "/lovable-uploads/lcl.png",
+      title: "LCL Consolidation",
+      description: "Cost-effective consolidation services for smaller shipments to major global destinations.",
+      icon: <Package />,
+      link: "/services/lcl-consolidation"
+    },
+    {
+      image: "/lovable-uploads/gp.jpg.tf",
+      title: "3PL Services",
+      description: "Comprehensive third-party logistics solutions optimizing your supply chain efficiency.",
+      icon: <Warehouse />,
+      link: "/services/3pl"
+    }
   ];
 
   return (
